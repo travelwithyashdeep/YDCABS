@@ -51,6 +51,14 @@ export default function Navbar() {
             </a>
             <span className="hidden sm:inline text-gray-600">|</span>
             <span className="hidden sm:inline">24/7 Cab Booking Vadodara</span>
+            <span className="hidden sm:inline text-gray-600">|</span>
+            <Link
+              href="mailto:bookings@yashdeepcabs.com"
+              target="_blank"
+              className="hidden sm:inline"
+            >
+              bookings@yashdeepcabs.com
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <a

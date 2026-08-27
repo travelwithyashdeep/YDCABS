@@ -522,27 +522,7 @@ export const placeGroups: PlaceGroup[] = [
       ),
     ],
   },
-  {
-    id: "outstation-goa",
-    title: "Popular Outstation Destinations – Goa",
-    subtitle: "Beaches, Parties & Portuguese Architecture",
-    items: [
-      createPlace(
-        "goa",
-        "Goa",
-        "https://i.pinimg.com/236x/aa/61/83/aa618317e4843d81719ddf9c6e2300d7.jpg",
-        "Goa",
-        {
-          location: "Goa",
-          distance: "950 km from Vadodara",
-          duration: "5 - 7 Days",
-          description:
-            "Pristine beaches, water sports, historic churches & nightlife.",
-          tag: "Beach Holiday",
-        },
-      ),
-    ],
-  },
+
   {
     id: "vadodara-1day-trips",
     title: "Vadodara se popular 1-Day Trips",

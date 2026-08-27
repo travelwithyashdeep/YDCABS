@@ -96,11 +96,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${neueHaas.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#FAFAFA] text-[#111827]">
+      <body className="min-h-full flex flex-col  text-[#111827]">
         {children}
         <ToastContainer position="top-right" autoClose={4000} theme="light" />
       </body>
-      <Analytics />
     </html>
   );
 }

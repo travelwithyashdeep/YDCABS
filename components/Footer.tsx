@@ -54,10 +54,7 @@ const footerDestinations = [
           { name: "Gujarat Temple Tour", href: "/places/gujarat-temple-tour" },
         ],
       },
-      {
-        title: "Popular Outstation Destinations - Goa",
-        links: [{ name: "Goa", href: "/places/goa" }],
-      },
+
     ],
   },
   {
@@ -170,10 +167,10 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <Mail size={12} className="text-[#D51745]" />
               <a
-                href="mailto:booking@yashdeeptravels.com"
+                href="mailto:bookings@yashdeepcabs.com"
                 className="hover:text-white transition-colors duration-150"
               >
-                booking@yashdeeptravels.com
+                bookings@yashdeepcabs.com
               </a>
             </div>
           </div>

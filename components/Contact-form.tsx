@@ -15,6 +15,24 @@ import { placeGroups } from "@/data/placesData";
 
 type TripType = "oneway" | "roundtrip" | "local";
 
+const LOCAL_PACKAGES = [
+  { id: "4hr-40km", label: "4 hrs - 40 km", sedanPrice: 800, suvPrice: 1500 },
+  { id: "6hr-60km", label: "6 hrs - 60 km", sedanPrice: 1200, suvPrice: 1800 },
+  { id: "8hr-80km", label: "8 hrs - 80 km", sedanPrice: 1700, suvPrice: 2200 },
+  {
+    id: "10hr-100km",
+    label: "10 hrs - 100 km",
+    sedanPrice: 2200,
+    suvPrice: 2500,
+  },
+  {
+    id: "12hr-120km",
+    label: "12 hrs - 120 km",
+    sedanPrice: 2500,
+    suvPrice: 3000,
+  },
+];
+
 interface Suggestion {
   city: string;
   subtitle: string;
@@ -23,9 +41,12 @@ interface Suggestion {
 }
 
 const getAqiBadgeColor = (aqi: number) => {
-  if (aqi <= 50) return "bg-[#D1FAE5] text-[#059669] border border-[#059669]/20";
-  if (aqi <= 100) return "bg-[#FEF3C7] text-[#D97706] border border-[#D97706]/20";
-  if (aqi <= 150) return "bg-[#FFEDD5] text-[#EA580C] border border-[#EA580C]/20";
+  if (aqi <= 50)
+    return "bg-[#D1FAE5] text-[#059669] border border-[#059669]/20";
+  if (aqi <= 100)
+    return "bg-[#FEF3C7] text-[#D97706] border border-[#D97706]/20";
+  if (aqi <= 150)
+    return "bg-[#FFEDD5] text-[#EA580C] border border-[#EA580C]/20";
   return "bg-[#FFE4E6] text-[#E11D48] border border-[#E11D48]/20";
 };
 
@@ -43,27 +64,27 @@ const CITY_COORDS: Record<string, { lat: number; lon: number }> = {
   rajkot: { lat: 22.3039, lon: 70.8022 },
   anand: { lat: 22.5645, lon: 72.9289 },
   nadiad: { lat: 22.6916, lon: 72.8634 },
-  "statue of unity": { lat: 21.8380, lon: 73.7191 },
+  "statue of unity": { lat: 21.838, lon: 73.7191 },
   udaipur: { lat: 24.5854, lon: 73.7125 },
   "mount abu": { lat: 24.5925, lon: 72.7156 },
-  mumbai: { lat: 19.0760, lon: 72.8777 },
+  mumbai: { lat: 19.076, lon: 72.8777 },
   nashik: { lat: 19.9975, lon: 73.7898 },
   shirdi: { lat: 19.7662, lon: 74.4762 },
   indore: { lat: 22.7196, lon: 75.8577 },
-  ujjain: { lat: 23.1760, lon: 75.7885 },
-  somnath: { lat: 20.8880, lon: 70.4012 },
+  ujjain: { lat: 23.176, lon: 75.7885 },
+  somnath: { lat: 20.888, lon: 70.4012 },
   dwarka: { lat: 22.2442, lon: 68.9685 },
   diu: { lat: 20.7144, lon: 70.9822 },
-  sasan: { lat: 21.1610, lon: 70.5985 },
-  gir: { lat: 21.1610, lon: 70.5985 },
-  "gir national park": { lat: 21.1610, lon: 70.5985 },
+  sasan: { lat: 21.161, lon: 70.5985 },
+  gir: { lat: 21.161, lon: 70.5985 },
+  "gir national park": { lat: 21.161, lon: 70.5985 },
   pavagadh: { lat: 22.4628, lon: 73.5242 },
-  champaner: { lat: 22.4842, lon: 73.5350 },
+  champaner: { lat: 22.4842, lon: 73.535 },
   daman: { lat: 20.3974, lon: 72.8328 },
   saputara: { lat: 20.5794, lon: 73.7483 },
   pune: { lat: 18.5204, lon: 73.8567 },
   lonavala: { lat: 18.7557, lon: 73.4091 },
-  mahabaleshwar: { lat: 17.9258, lon: 73.6560 },
+  mahabaleshwar: { lat: 17.9258, lon: 73.656 },
   shrinathji: { lat: 24.9333, lon: 73.8167 },
   nathdwara: { lat: 24.9333, lon: 73.8167 },
   jaipur: { lat: 26.9124, lon: 75.7873 },
@@ -73,6 +94,7 @@ const CITY_COORDS: Record<string, { lat: number; lon: number }> = {
 
 export default function ContactForm() {
   const [tripType, setTripType] = useState<TripType>("oneway");
+  const [localPackage, setLocalPackage] = useState("8hr-80km");
   const [pickup, setPickup] = useState("");
   const [dropoff, setDropoff] = useState("");
   const [pickupDate, setPickupDate] = useState("");
@@ -139,7 +161,7 @@ export default function ContactForm() {
           list.push({
             city: item.title,
             subtitle: item.location || "Gujarat & Nearby",
-            ...coords
+            ...coords,
           });
         }
       });
@@ -189,7 +211,10 @@ export default function ContactForm() {
     callback([]);
   };
 
-  const handleSelectPlace = async (field: "pickup" | "dropoff", s: Suggestion) => {
+  const handleSelectPlace = async (
+    field: "pickup" | "dropoff",
+    s: Suggestion,
+  ) => {
     if (!s.lat || !s.lon) {
       if (field === "pickup") setPickupAqi(null);
       else setDropoffAqi(null);
@@ -197,12 +222,13 @@ export default function ContactForm() {
     }
 
     const setAqi = field === "pickup" ? setPickupAqi : setDropoffAqi;
-    const setLoading = field === "pickup" ? setPickupAqiLoading : setDropoffAqiLoading;
+    const setLoading =
+      field === "pickup" ? setPickupAqiLoading : setDropoffAqiLoading;
 
     setLoading(true);
     try {
       const res = await fetch(
-        `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${s.lat}&longitude=${s.lon}&current=us_aqi`
+        `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${s.lat}&longitude=${s.lon}&current=us_aqi`,
       );
       if (res.ok) {
         const data = await res.json();
@@ -235,6 +261,16 @@ export default function ContactForm() {
       setDropoffAqi(null);
     }
   }, [dropoff]);
+
+  useEffect(() => {
+    if (
+      tripType === "local" &&
+      carType !== "Sedan (Dzire/Etios)" &&
+      carType !== "SUV (Ertiga/Triber)"
+    ) {
+      setCarType("Sedan (Dzire/Etios)");
+    }
+  }, [tripType, carType]);
 
   // Debounced search for Desktop pickup
   useEffect(() => {
@@ -359,6 +395,23 @@ export default function ContactForm() {
           ? "Round Trip Outstation"
           : "Local Sightseeing/Transfer";
 
+    const selectedPkg = LOCAL_PACKAGES.find((p) => p.id === localPackage);
+    let localPackageText = "";
+    if (tripType === "local" && selectedPkg) {
+      let pkgFare = "";
+      if (carType.toLowerCase().includes("sedan")) {
+        pkgFare = `₹${selectedPkg.sedanPrice}`;
+      } else if (
+        carType.toLowerCase().includes("suv") &&
+        !carType.toLowerCase().includes("premium")
+      ) {
+        pkgFare = `₹${selectedPkg.suvPrice}`;
+      } else {
+        pkgFare = "Quote on request";
+      }
+      localPackageText = `• *Local Package:* ${selectedPkg.label} (${pkgFare})\n`;
+    }
+
     const message = `*Yashdeep Travels - Cab Booking Inquiry*
 
 Hello, I would like to request a fare quote and check vehicle availability for the following trip:
@@ -366,7 +419,7 @@ Hello, I would like to request a fare quote and check vehicle availability for t
 *Booking Details:*
 • *Service Type:* ${tripTypeName}
 • *Pickup Location:* ${pickup}
-${tripType !== "local" ? `• *Drop-off Location:* ${dropoff}\n` : ""}• *Preferred Vehicle:* ${carType}
+${tripType !== "local" ? `• *Drop-off Location:* ${dropoff}\n` : ""}${localPackageText}• *Preferred Vehicle:* ${carType}
 • *Travel Date:* ${pickupDate}
 • *Pickup Time:* ${pickupTime}
 
@@ -448,7 +501,9 @@ Please share the availability and customized fare estimates at your earliest con
         {pickupAqi !== null && (
           <div className="mt-1 flex items-center gap-1.5 text-xs font-semibold pl-1 select-none">
             <span className="text-white/60">Pickup AQI:</span>
-            <span className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold ${getAqiBadgeColor(pickupAqi)}`}>
+            <span
+              className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold ${getAqiBadgeColor(pickupAqi)}`}
+            >
               {pickupAqi} - {getAqiStatus(pickupAqi)}
             </span>
           </div>
@@ -501,9 +556,91 @@ Please share the availability and customized fare estimates at your earliest con
         {dropoffAqi !== null && tripType !== "local" && (
           <div className="mt-1 flex items-center gap-1.5 text-xs font-semibold pl-1 select-none">
             <span className="text-white/60">Dropoff AQI:</span>
-            <span className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold ${getAqiBadgeColor(dropoffAqi)}`}>
+            <span
+              className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold ${getAqiBadgeColor(dropoffAqi)}`}
+            >
               {dropoffAqi} - {getAqiStatus(dropoffAqi)}
             </span>
+          </div>
+        )}
+
+        {/* Local Package Option List (Only shown for Local Trip Type) */}
+        {tripType === "local" && (
+          <div className="space-y-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-white/70 pl-1">
+              Select Local Package
+            </label>
+            <div className="space-y-2 max-h-60 overflow-y-auto pr-1.5 dark-scrollbar">
+              {LOCAL_PACKAGES.map((pkg) => {
+                const isSelected = localPackage === pkg.id;
+                const isSedan = carType.toLowerCase().includes("sedan");
+                const isSuv =
+                  carType.toLowerCase().includes("suv") &&
+                  !carType.toLowerCase().includes("premium");
+
+                let mainPrice = "";
+                let secondaryPrice = "";
+
+                if (isSedan) {
+                  mainPrice = `₹${pkg.sedanPrice}`;
+                  secondaryPrice = `SUV: ₹${pkg.suvPrice}`;
+                } else if (isSuv) {
+                  mainPrice = `₹${pkg.suvPrice}`;
+                  secondaryPrice = `Sedan: ₹${pkg.sedanPrice}`;
+                } else {
+                  mainPrice = `₹${pkg.sedanPrice} / ₹${pkg.suvPrice}`;
+                  secondaryPrice = "Sedan / SUV Fares";
+                }
+
+                return (
+                  <button
+                    key={pkg.id}
+                    type="button"
+                    onClick={() => setLocalPackage(pkg.id)}
+                    className={`w-full text-left p-3.5 rounded-xl border flex items-center justify-between transition-all duration-150 cursor-pointer ${
+                      isSelected
+                        ? "bg-white border-[#D51745] shadow-lg shadow-black/15 font-bold"
+                        : "bg-white/5 border-white/10 hover:bg-white/10"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
+                          isSelected ? "border-[#D51745]" : "border-white/30"
+                        }`}
+                      >
+                        {isSelected && (
+                          <span className="w-2 h-2 rounded-full bg-[#D51745]" />
+                        )}
+                      </span>
+                      <span
+                        className={`text-xs md:text-sm font-semibold ${
+                          isSelected ? "text-gray-900" : "text-white"
+                        }`}
+                      >
+                        {pkg.label}
+                      </span>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <div
+                        className={`text-xs md:text-sm font-black ${
+                          isSelected ? "text-[#D51745]" : "text-white"
+                        }`}
+                      >
+                        {mainPrice}
+                      </div>
+                      <div
+                        className={`text-[9px] font-medium leading-none mt-0.5 ${
+                          isSelected ? "text-gray-500" : "text-white/40"
+                        }`}
+                      >
+                        {secondaryPrice}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         )}
 
@@ -516,10 +653,14 @@ Please share the availability and customized fare estimates at your earliest con
           >
             <option value="Sedan (Dzire/Etios)">Sedan (Dzire/Etios)</option>
             <option value="SUV (Ertiga/Triber)">SUV (Ertiga/Triber)</option>
-            <option value="Premium SUV (Innova Crysta)">
-              Premium SUV (Innova Crysta)
-            </option>
-            <option value="Tempo Traveller">Tempo Traveller</option>
+            {tripType !== "local" && (
+              <>
+                <option value="Premium SUV (Innova Crysta)">
+                  Premium SUV (Innova Crysta)
+                </option>
+                <option value="Tempo Traveller">Tempo Traveller</option>
+              </>
+            )}
           </select>
           <span className="absolute right-3.5 top-4.5 pointer-events-none text-gray-400">
             <ChevronDown size={14} />

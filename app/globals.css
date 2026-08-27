@@ -223,3 +223,19 @@ footer .opacity-30 {
 .sm-toggle {
   color: #111827 !important;
 }
+
+/* Dark/Translucent scrollbar for glassmorphic lists */
+.dark-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.dark-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+}
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+}
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #D51745;
+}

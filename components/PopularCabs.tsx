@@ -116,7 +116,7 @@ export default function PopularCabs() {
                 <div
                   className={`absolute inset-x-0 bottom-0 z-0 rounded-b-3xl pt-5 pb-2 transition-all duration-200 ${
                     isLast
-                      ? "bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#D4AF37]"
+                      ? "bg-neutral-200 border border-neutral-200"
                       : "bg-blue-500"
                   }`}
                 >
@@ -129,7 +129,7 @@ export default function PopularCabs() {
                       <li key={feature} className="flex items-center gap-x-4">
                         {i !== 0 && (
                           <span
-                            className={`h-1 w-1 rounded-full ${isLast ? "bg-gray-900/70" : "bg-white/70"}`}
+                            className={`h-1 w-1 rounded-full ${isLast ? "bg-gray-900/40" : "bg-white/70"}`}
                           />
                         )}
                         <span>{feature}</span>
@@ -141,12 +141,12 @@ export default function PopularCabs() {
                 <div
                   className={`relative z-10 rounded-3xl p-4 pb-6 transition-all duration-300 ${
                     isLast
-                      ? "bg-gradient-to-br from-[#0D0C10] to-[#1A1822] border border-[#D4AF37]/50 shadow-[0_8px_30px_rgba(212,175,55,0.15)] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.25)] group-hover:border-[#D4AF37]"
+                      ? "bg-brand border border-[#D4AF37]/50 shadow-[0_8px_30px_rgba(212,175,55,0.15)] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.25)] group-hover:border-[#D4AF37]"
                       : "bg-white border border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
                   }`}
                 >
                   {isLast && (
-                    <span className="absolute -top-3 -right-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-gray-955 text-[9px] font-black uppercase px-2.5 py-1 rounded-full shadow-md z-20 flex items-center gap-1 border border-white/10 select-none">
+                    <span className="absolute -top-3 -right-2 bg-linear-to-r from-[#D4AF37] to-[#FFD700] text-gray-955 text-[9px] font-black uppercase px-2.5 py-1 rounded-full shadow-md z-20 flex items-center gap-1 border text-neutral-800 border-white/10 select-none">
                       PREMIUM
                     </span>
                   )}
@@ -223,7 +223,7 @@ export default function PopularCabs() {
                       <Link
                         className={`transition py-2.5 px-5 rounded-full text-xs font-black ${
                           isLast
-                            ? "bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-gray-950 hover:scale-102 hover:shadow-[0_4px_12px_rgba(212,175,55,0.2)]"
+                            ? "bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-netral-950 hover:scale-102 hover:shadow-[0_4px_12px_rgba(212,175,55,0.2)]"
                             : "bg-neutral-950 text-neutral-50 hover:bg-dark"
                         }`}
                         href={waLink}

@@ -1,7 +1,4 @@
 "use client";
-
-import React from "react";
-
 interface FeatureCard {
   title: string;
   desc: string;
@@ -11,29 +8,28 @@ interface FeatureCard {
   linkHref: string;
   highlighted?: boolean;
 }
-
 const FEATURES: FeatureCard[] = [
   {
     title: "Doorstep Pickup & Drop",
     desc: "Safe pickups directly from your home, hotel, railway station, or airport in Vadodara at any hour.",
-    badgeText: "Convenient",
+    badgeText: "Convenience",
     badgeColor: "bg-[#E5F1FF] text-[#0066FF]",
     linkText: "Pickup Options",
     linkHref: "/features/doorstep-pickup-drop",
   },
   {
-    title: "Zero Hidden Charges",
+    title: "No Hidden Charges",
     desc: "100% transparent pricing models. Pay strictly according to our per-km rates, toll receipts, and driver allowance.",
-    badgeText: "100% Transparent",
+    badgeText: "Transparent",
     badgeColor: "bg-[#F3E8FF] text-[#7C3AED]",
     linkText: "Tariffs & Rates",
     linkHref: "/features/zero-hidden-charges",
     highlighted: true,
   },
   {
-    title: "Professional Drivers",
+    title: "Safe & Polite",
     desc: "Highly experienced, licensed, and polite drivers who are familiar with outstation highways and state routes.",
-    badgeText: "Safe & Polite",
+    badgeText: "Professional Drivers ",
     badgeColor: "bg-[#FEF3C7] text-[#D97706]",
     linkText: "Driver Guidelines",
     linkHref: "/features/professional-drivers",
@@ -49,7 +45,7 @@ const FEATURES: FeatureCard[] = [
   {
     title: "24/7 Helpline Support",
     desc: "Round-the-clock booking assistance and active trip tracking to guarantee safety for solo/female travelers.",
-    badgeText: "Always Online",
+    badgeText: "Available",
     badgeColor: "bg-[#FFE4E6] text-[#E11D48]",
     linkText: "Emergency Helpline",
     linkHref: "/features/24-7-helpline-support",
@@ -57,7 +53,7 @@ const FEATURES: FeatureCard[] = [
   {
     title: "Flexible Trip Modals",
     desc: "Modify travel timings, edit stopovers, or request quick cancellations without complicated penalty clauses.",
-    badgeText: "No Penalty",
+    badgeText: "No Penalty - Pocket Friendly",
     badgeColor: "bg-[#E0E7FF] text-[#4F46E5]",
     linkText: "Cancellation Policy",
     linkHref: "/features/flexible-trip-modals",
@@ -107,7 +103,7 @@ export default function Whyus() {
                 {/* Top: Badge + Title + Description */}
                 <div>
                   <span
-                    className={`inline-flex px-2.5 py-1 rounded-md text-[10px] font-bold w-fit mb-5 ${feat.badgeColor}`}
+                    className={`inline-flex px-3.5 py-1 rounded-md text-[12px] font-bold w-fit mb-3 ${feat.badgeColor}`}
                   >
                     {feat.badgeText}
                   </span>

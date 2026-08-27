@@ -77,10 +77,10 @@ export default function GetInTouch() {
                   Email Inquiry
                 </h4>
                 <a
-                  href="mailto:booking@yashdeeptravels.com"
+                  href="mailto:bookings@yashdeepcabs.com"
                   className="block font-black text-sm md:text-base text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150"
                 >
-                  booking@yashdeeptravels.com
+                  bookings@yashdeepcabs.com
                 </a>
               </div>
             </div>
