@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-neue-haas), sans-serif;
+  --font-mono: monospace;
+  --color-brand: #D51745;
+  --color-brand-hover: #B21035;
+  --color-bg-base: #FAFAFA;
+  --color-bg-card: #FFFFFF;
+  --color-border-base: #E5E7EB;
+}
+:root {
+  --background: #FAFAFA;
+  --foreground: #111827;
+  --brand: #D51745;
+  --brand-hover: #B21035;
+  --bg-card: #FFFFFF;
+  --border-base: #E5E7EB;
+}
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar Styles (Light Mode) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 5px;
+  border: 2px solid #F3F4F6;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D51745;
+}
+
+/* StarBorder Animations */
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0.2;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0.2;
+  }
+}
+
+.animate-star-movement-bottom {
+  animation: star-movement-bottom linear infinite alternate;
+}
+
+.animate-star-movement-top {
+  animation: star-movement-top linear infinite alternate;
+}
+
+/* ------------------------------------------------------------- */
+/* ⚪ WHITE / LIGHT MODE OVERRIDES FOR COMPILED TAILWIND CLASSES ⚪ */
+/* ------------------------------------------------------------- */
+
+/* Backgrounds */
+.bg-\[\#0D0C10\] {
+  background-color: #FAFAFA !important;
+}
+
+.bg-\[\#15131C\] {
+  background-color: #FFFFFF !important;
+}
+
+.bg-\[\#08070A\] {
+  background-color: #F3F4F6 !important;
+}
+
+.bg-\[\#1C1A24\] {
+  background-color: #FAFAFA !important;
+}
+
+/* Borders */
+.border-\[\#221F2B\],
+.border-white\/15,
+.border-white\/10,
+.border-white\/5 {
+  border-color: #E5E7EB !important;
+}
+
+.border-\[\#221F2B\]\/50 {
+  border-color: rgba(229, 231, 235, 0.5) !important;
+}
+
+.border-\[\#221F2B\]\/60 {
+  border-color: rgba(229, 231, 235, 0.6) !important;
+}
+
+.border-\[\#D51745\]\/30 {
+  border-color: rgba(213, 23, 69, 0.3) !important;
+}
+
+.divide-\[\#221F2B\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #E5E7EB !important;
+}
+
+/* Texts */
+.text-white {
+  color: #111827 !important;
+}
+
+.text-gray-200 {
+  color: #1F2937 !important;
+}
+
+.text-gray-300 {
+  color: #374151 !important;
+}
+
+.text-gray-400 {
+  color: #4B5563 !important;
+}
+
+.text-gray-500 {
+  color: #6B7280 !important;
+}
+
+/* Glass Panels & Inputs */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: #E5E7EB !important;
+}
+
+.glass-input {
+  background: #FFFFFF !important;
+  border-color: #D1D5DB !important;
+  color: #111827 !important;
+}
+
+.glass-input::placeholder {
+  color: #9CA3AF !important;
+}
+
+.glass-input:focus {
+  border-color: #D51745 !important;
+  box-shadow: 0 0 0 2px rgba(213, 23, 69, 0.1) !important;
+}
+
+/* Preserve White Text on Brand-Colored Elements */
+.bg-\[\#D51745\] *,
+.bg-\[\#D51745\] .text-white,
+.bg-brand *,
+button[type="submit"] *,
+button[type="submit"] {
+  color: #FFFFFF !important;
+}
+
+/* Adjust map styling to normal grayscale for light mode */
+.grayscale.contrast-125.invert.opacity-80 {
+  filter: grayscale(0.2) opacity(0.95) !important;
+}
+
+/* Mobile search drawer */
+.bg-\[\#0D0C10\].z-50 {
+  background-color: #FAFAFA !important;
+}
+
+.bg-\[\#0D0C10\].z-50 .bg-white\/5 {
+  background-color: #FFFFFF !important;
+  border-color: #D1D5DB !important;
+}
+
+.bg-\[\#0D0C10\].z-50 .text-white {
+  color: #111827 !important;
+}
+
+.bg-\[\#0D0C10\].z-50 .bg-\[\#15131C\] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+.bg-\[\#0D0C10\].z-50 .bg-\[\#15131C\] .text-white {
+  color: #111827 !important;
+}
+
+/* Accordion detail box background */
+.bg-\[\#0D0C10\]\/20 {
+  background-color: #F9FAFB !important;
+}
+
+/* Footer Strands canvas opacity adjustment */
+footer .opacity-30 {
+  opacity: 0.15 !important;
+}
+
+/* StaggeredMenu sidebar styles override */
+.staggered-menu-panel {
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.sm-toggle {
+  color: #111827 !important;
+}
