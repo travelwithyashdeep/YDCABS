@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 const neueHaas = localFont({
   src: [
     {
@@ -99,6 +100,7 @@ export default function RootLayout({
         {children}
         <ToastContainer position="top-right" autoClose={4000} theme="light" />
       </body>
+      <Analytics />
     </html>
   );
 }
