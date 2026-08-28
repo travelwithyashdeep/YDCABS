@@ -83,9 +83,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/images/image.png",
-    shortcut: "/images/image.png",
-    apple: "/images/image.png",
+    icon: "/YASHDEEP%20TRAVELS.svg",
+    shortcut: "/YASHDEEP%20TRAVELS.svg",
+    apple: "/YASHDEEP%20TRAVELS.svg",
   },
 };
 

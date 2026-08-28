@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Metrix from "@/components/Metrix";
 import PopularRoutes from "@/components/PopularRoutes";
 import PopularCabs from "@/components/PopularCabs";
-import ScrollDirectionCarousel from "@/components/ScrollDirectionCarousel";
 import Whyus from "@/components/Whyus";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -102,22 +101,12 @@ export default function Home() {
         {/* Hero Banner with Booking Engine */}
         <Hero />
         {/* Fleet Tariffs & Booking Rates Cards */}
+
         <PopularCabs />
         {/* Infinite Scrolling Draggable Destination Routes */}
         <PopularRoutes />
         {/* ScrollDirectionCarousel for Popular Places */}
-        <section className="py-20 bg-[#FAFAFA] border-t border-gray-250/20 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 mb-6">
-            <span className="block text-[10px] md:text-xs font-black uppercase tracking-widest text-[#D51745] mb-1">
-              Top Sightseeing
-            </span>
-            <h2 className="text-2xl md:text-4xl font-black text-gray-900 tracking-tight flex items-center gap-2">
-              <span className="w-1.5 h-7 bg-[#D51745] rounded-full inline-block" />
-              Popular Destinations
-            </h2>
-          </div>
-          <ScrollDirectionCarousel />
-        </section>
+
         {/* Dynamic Statistics Matrix */}
         <Metrix />
         {/* Six Key Selling Features */}

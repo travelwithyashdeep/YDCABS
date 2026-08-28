@@ -1,89 +1,10 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { Navigation, CableCar } from "lucide-react";
-
-interface FleetCar {
-  name: string;
-  image: string;
-  rate: string;
-  minLimit: string;
-  allowance: string;
-  features: string[];
-}
-
-const FLEET: FleetCar[] = [
-  {
-    name: "Swift Desire",
-    image: "/cars/final-desire.png",
-    rate: "₹11/km",
-    minLimit: "300 km/day",
-    allowance: "₹300",
-    features: [
-      "AC & Heater",
-      "Sanitized Cab",
-      "Carrier Available",
-      "Music System",
-    ],
-  },
-  {
-    name: "Maruti Ertiga",
-    image: "/cars/suv.png",
-    rate: "₹14/km",
-    minLimit: "300 km/day",
-    allowance: "₹300",
-    features: [
-      "AC Vent Rear",
-      "Spacious Seats",
-      "Experienced Driver",
-      "Foldable Seats",
-    ],
-  },
-  {
-    name: "Toyota Innova Crysta",
-    image: "/cars/htcross.png",
-    rate: "₹20/km",
-    minLimit: "300 km/day",
-    allowance: "₹400",
-    features: [
-      "Pushback Captain Chairs",
-      "Dual AC",
-      "Premium Comfort",
-      "GPS Tracker",
-    ],
-  },
-  {
-    name: "Urbania",
-    image: "/cars/Urbania.png",
-    rate: "₹35/km",
-    minLimit: "300 km/day",
-    allowance: "₹500",
-    features: [
-      "Luxury Recliners",
-      "Screen TV & Audio",
-      "Huge Space",
-      "Perfect for Trips",
-    ],
-  },
-  {
-    name: "Hycross",
-    image: "/cars/htcross.png",
-    rate: "₹24/km",
-    minLimit: "300 km/day",
-    allowance: "₹500",
-    features: ["Huge Space", "Perfect for Events"],
-  },
-  {
-    name: "BMW",
-    image: "/cars/bmw.png",
-    rate: "Custom",
-    minLimit: "Flexible",
-    allowance: "Included",
-    features: ["Luxury Recliners", "Perfect for Events"],
-  },
-];
+import { Navigation } from "lucide-react";
+import Image from "next/image";
+import { fleetData as FLEET } from "@/data/fleetData";
+import ScrollDirectionCarousel from "./ScrollDirectionCarousel";
 export default function PopularCabs() {
   return (
     <section
@@ -101,11 +22,14 @@ export default function PopularCabs() {
             corporate needs, or long-distance family tours.
           </p>
         </div>
+        <section className="py-20 bg-[#FAFAFA] border-t border-gray-250/20 overflow-hidden">
+          <ScrollDirectionCarousel />
+        </section>
         {/* Fleet Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {FLEET.map((car, index) => {
             const isLast = index === FLEET.length - 1;
-            const waMsg = `Hello Yashdeep Travels, I would like to check the availability and customized fare quotes for renting a *${car.name}* cab. Kindly share details at your earliest convenience. Thank you.`;
+            const waMsg = `Hello Yashdeep Travels, I would like to check the availability and customized fare quotes for renting a *${car.name} ${car.options}* cab. Kindly share details at your earliest convenience. Thank you.`;
             const waLink = `https://wa.me/919099042156?text=${encodeURIComponent(waMsg)}`;
             return (
               <div
@@ -173,6 +97,13 @@ export default function PopularCabs() {
                       >
                         {car.name}
                       </h2>
+                      <p
+                        className={`text-[11px] mt-0.5 font-semibold leading-tight line-clamp-1 ${
+                          isLast ? "text-neutral-300" : "text-gray-500"
+                        }`}
+                      >
+                        {car.options}
+                      </p>
                       <div className="mt-2 flex gap-8">
                         <div>
                           <p className="text-xs text-gray-400">

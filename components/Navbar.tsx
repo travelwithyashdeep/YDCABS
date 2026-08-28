@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SpecularButton from "@/components/SpecularButton";
 import { Phone, MessageSquare, Menu, X } from "lucide-react";
-import logo from "@/public/images/logo.jpg";
+const logo = "/YASHDEEP%20TRAVELS.svg";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -100,7 +100,7 @@ const footerDestinations = [
     ],
   },
 ];
-import logo from "@/public/images/logo.jpg";
+const logo = "/YASHDEEP%20TRAVELS.svg";
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
