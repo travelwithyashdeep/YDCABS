@@ -105,12 +105,6 @@ const ScrollDirectionCarousel = () => {
       <div
         ref={containerRef}
         className="w-full select-none overflow-hidden py-4"
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-        }}
       >
         <div ref={trackRef} className="flex w-max will-change-transform">
           {cars.map((car, i) => {

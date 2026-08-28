@@ -297,6 +297,15 @@ export default function Footer() {
           ))}
         </div>
       </div>
+      {/* Floating Call Helper Button */}
+      <a
+        href="tel:+919099042156"
+        className="fixed bottom-24 right-6 w-14 h-14 bg-[#D51745] hover:bg-[#B21035] text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(213,23,69,0.3)] hover:scale-105 transition-transform duration-200 z-40"
+        title="Call dispatch office for booking"
+      >
+        <Phone size={22} />
+      </a>
+
       {/* Floating WhatsApp Helper Button */}
       <a
         href="https://wa.me/919099042156"
