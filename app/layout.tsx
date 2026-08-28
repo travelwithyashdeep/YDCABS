@@ -30,6 +30,11 @@ const neueHaas = localFont({
   variable: "--font-neue-haas",
 });
 
+const cameliya = localFont({
+  src: "../fonts/Cameliya.ttf",
+  variable: "--font-cameliya",
+});
+
 export const metadata: Metadata = {
   title: "Yashdeep Travels - Premium Car Rental & Cab Services in Vadodara",
   description:
@@ -83,9 +88,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/YASHDEEP%20TRAVELS.svg",
-    shortcut: "/YASHDEEP%20TRAVELS.svg",
-    apple: "/YASHDEEP%20TRAVELS.svg",
+    icon: "/YASHDEEP%20TRAVELS%20(1)%201.png",
+    shortcut: "/YASHDEEP%20TRAVELS%20(1)%201.png",
+    apple: "/YASHDEEP%20TRAVELS%20(1)%201.png",
   },
 };
 
@@ -95,7 +100,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${neueHaas.variable} h-full antialiased`}>
+    <html lang="en" className={`${neueHaas.variable} ${cameliya.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col  text-[#111827]">
         {children}
         <ToastContainer position="top-right" autoClose={4000} theme="light" />

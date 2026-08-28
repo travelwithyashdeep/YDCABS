@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SpecularButton from "@/components/SpecularButton";
 import { Phone, MessageSquare, Menu, X } from "lucide-react";
-const logo = "/YASHDEEP%20TRAVELS.svg";
+import Ydcabs from "./Ydcabs";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,7 +31,6 @@ export default function Navbar() {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-30 flex flex-col">
@@ -87,15 +86,8 @@ export default function Navbar() {
               href="/"
               className="flex items-center gap-2 select-none group"
             >
-              <div className="w-10 h-10 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                <Image
-                  src={logo}
-                  alt="Yashdeep Travels Logo"
-                  fill
-                  sizes="40px"
-                  className="object-contain"
-                  priority
-                />
+              <div className="w-10 h-10 relative overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <Ydcabs className="object-contain" />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-lg tracking-tight leading-none text-gray-900">

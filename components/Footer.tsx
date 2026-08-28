@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Phone, ArrowUp, MapPin, Mail } from "lucide-react";
 import Strands from "@/components/Stards";
-import Image from "next/image";
+import Ydcabs from "./Ydcabs";
 const footerDestinations = [
   {
     col: [
@@ -54,7 +54,6 @@ const footerDestinations = [
           { name: "Gujarat Temple Tour", href: "/places/gujarat-temple-tour" },
         ],
       },
-
     ],
   },
   {
@@ -134,14 +133,8 @@ export default function Footer() {
         {/* Col 1: Brand Info (4 cols) */}
         <div className="lg:col-span-4 space-y-4">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 relative overflow-hidden">
-              <Image
-                src={logo}
-                alt="Yashdeep Travels Logo"
-                fill
-                sizes="36px"
-                className="object-contain"
-              />
+            <div className="w-10 h-10 relative overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <Ydcabs className="object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-base tracking-tight leading-none text-white">

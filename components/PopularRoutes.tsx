@@ -102,7 +102,7 @@ function RouteGroupCarousel({ group }: RouteGroupProps) {
       <div className="flex items-end justify-between mb-6 px-1">
         <div>
           {group.subtitle && (
-            <span className="block text-[10px] md:text-xs font-black uppercase tracking-widest text-[#D51745] mb-1 font-mono">
+            <span className="block text-xs md:text-sm font-bold text-[#D51745] mb-1 font-calibary tracking-widest">
               {group.subtitle}
             </span>
           )}
