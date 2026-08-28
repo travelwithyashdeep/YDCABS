@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import SpecularButton from "@/components/SpecularButton";
 import { Phone, MessageSquare, Menu, X } from "lucide-react";
 import Ydcabs from "./Ydcabs";
@@ -40,13 +39,13 @@ export default function Navbar() {
             scrolled ? "h-0 py-0 border-b-0 overflow-hidden" : "py-2"
           }`}
         >
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <a
               href="tel:+919099042156"
-              className="flex items-center gap-1.5 hover:text-white transition-colors duration-150"
+              className="flex items-center gap hover:text-white transition-colors duration-150"
             >
               <Phone size={12} className="text-[#D51745]" />
-              <span>+91 90990 42156</span>
+              <span className="whitespace-nowrap">+91 90990 42156</span>
             </a>
             <span className="hidden sm:inline text-gray-600">|</span>
             <span className="hidden sm:inline">24/7 Cab Booking Vadodara</span>
@@ -54,7 +53,7 @@ export default function Navbar() {
             <Link
               href="mailto:bookings@yashdeepcabs.com"
               target="_blank"
-              className="hidden sm:inline"
+              className="whitespace-nowrap"
             >
               bookings@yashdeepcabs.com
             </Link>
@@ -66,8 +65,11 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-[#25D366] transition-colors duration-150 font-medium"
             >
-              <MessageSquare size={12} className="text-[#25D366]" />
-              <span>Book via WhatsApp</span>
+              <MessageSquare
+                size={12}
+                className="text-[#25D366] text-xs lg:text-md"
+              />
+              <span className="whitespace-nowrap">Book via WhatsApp</span>
             </a>
           </div>
         </div>

@@ -30,9 +30,9 @@ const neueHaas = localFont({
   variable: "--font-neue-haas",
 });
 
-const cameliya = localFont({
-  src: "../fonts/Cameliya.ttf",
-  variable: "--font-cameliya",
+const neueHaasItalic = localFont({
+  src: "../fonts/NeueHaasDisplayLightItalic.ttf",
+  variable: "--font-neue-haas-italic",
 });
 
 export const metadata: Metadata = {
@@ -100,7 +100,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${neueHaas.variable} ${cameliya.variable} h-full antialiased`}>
+    <html lang="en" className={`${neueHaas.variable} ${neueHaasItalic.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col  text-[#111827]">
         {children}
         <ToastContainer position="top-right" autoClose={4000} theme="light" />

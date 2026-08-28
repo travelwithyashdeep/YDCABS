@@ -3,8 +3,7 @@
 @theme inline {
   --font-sans: var(--font-neue-haas), sans-serif;
   --font-mono: monospace;
-  --font-cameliya: var(--font-cameliya), sans-serif;
-  --font-calibary: var(--font-cameliya), sans-serif;
+  --font-neue-italic: var(--font-neue-haas-italic), sans-serif;
   --color-brand: #D51745;
   --color-brand-hover: #B21035;
   --color-bg-base: #FAFAFA;

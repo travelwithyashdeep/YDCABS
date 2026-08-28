@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
 import { Phone, Mail, MapPin, MessageSquare, Clock } from "lucide-react";
-import BorderGlow from "@/components/BorderGlow";
 
 export default function GetInTouch() {
   return (
@@ -36,17 +34,25 @@ export default function GetInTouch() {
                 <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   Call Helpline
                 </h4>
-                <a
-                  href="tel:+919099042156"
-                  className="block font-black text-lg text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150"
-                >
-                  +91 90990 42156
-                </a>
+                <div className="flex items-center justify-center flex-wrap">
+                  {" "}
+                  <a
+                    href="tel:+919099042156"
+                    className="block font-black text-lg mr-1 text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150"
+                  >
+                    +91 90990 42156
+                  </a>
+                  ||
+                  <a
+                    href="tel:+919825872134"
+                    className="block font-black text-lg ml-1 text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150"
+                  >
+                    +91 98258 72134
+                  </a>
+                </div>
               </div>
             </div>
-
             {/* WhatsApp Info */}
-
             <div className="p-5 flex items-start border border-neutral-200 rounded-xl gap-4">
               <span className="w-10 h-10 rounded-lg bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0">
                 <MessageSquare size={18} />
@@ -65,9 +71,7 @@ export default function GetInTouch() {
                 </a>
               </div>
             </div>
-
             {/* Email Info */}
-
             <div className="p-5 flex items-start border border-neutral-200 rounded-xl gap-4">
               <span className="w-10 h-10 rounded-lg bg-[#00B4D8]/10 border border-[#00B4D8]/20 flex items-center justify-center text-[#00B4D8] shrink-0">
                 <Mail size={18} />
@@ -84,9 +88,7 @@ export default function GetInTouch() {
                 </a>
               </div>
             </div>
-
             {/* Address */}
-
             <div className="p-5 flex items-start border border-neutral-200 rounded-xl gap-4">
               <span className="w-10 h-10 rounded-lg bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] shrink-0">
                 <MapPin size={18} />
@@ -101,7 +103,6 @@ export default function GetInTouch() {
                 </p>
               </div>
             </div>
-
             {/* Availability */}
             <div className="p-5 rounded-xl bg-gray-50 border border-gray-200 flex items-center gap-3 text-xs text-gray-700">
               <Clock size={16} className="text-[#D51745]" />
@@ -111,7 +112,6 @@ export default function GetInTouch() {
               </span>
             </div>
           </div>
-
           {/* Map Frame (7 cols) */}
           <div className="lg:col-span-7 h-96 w-full rounded-2xl overflow-hidden border border-gray-200 shadow-lg relative bg-white">
             <iframe
