@@ -64,20 +64,7 @@ const ScrollDirectionCarousel = () => {
       };
       gsap.ticker.add(tick);
 
-      // 1. Vertical Scroll Boost (non-preventPreventDefault, passive)
-      let lastScrollY = window.scrollY;
-      const onWindowScroll = () => {
-        const currentScrollY = window.scrollY;
-        const diff = currentScrollY - lastScrollY;
-        if (diff !== 0) {
-          direction = diff > 0 ? 1 : -1;
-          boost = gsap.utils.clamp(0, 45, boost + Math.abs(diff) * 0.06);
-        }
-        lastScrollY = currentScrollY;
-      };
-      window.addEventListener("scroll", onWindowScroll, { passive: true });
-
-      // 2. Horizontal Wheel Support (blocks default only for horizontal scroll)
+      // 1. Horizontal Wheel Support (blocks default only for horizontal scroll)
       const onWheel = (e: WheelEvent) => {
         if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
           e.preventDefault();
@@ -87,7 +74,7 @@ const ScrollDirectionCarousel = () => {
       };
       container.addEventListener("wheel", onWheel, { passive: false });
 
-      // 3. Touch swipe support for mobile devices
+      // 2. Touch swipe support for mobile devices
       let lastTouchX = 0;
       const onTouchStart = (e: TouchEvent) => {
         lastTouchX = e.touches[0].clientX;
@@ -106,7 +93,6 @@ const ScrollDirectionCarousel = () => {
 
       return () => {
         gsap.ticker.remove(tick);
-        window.removeEventListener("scroll", onWindowScroll);
         container.removeEventListener("wheel", onWheel);
         container.removeEventListener("touchstart", onTouchStart);
         container.removeEventListener("touchmove", onTouchMove);

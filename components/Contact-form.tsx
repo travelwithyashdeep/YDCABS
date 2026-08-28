@@ -431,7 +431,7 @@ Please share the availability and customized fare estimates at your earliest con
   };
 
   return (
-    <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-3xl shadow-2xl relative">
+    <div className="w-full max-w-md bg-white/10 backdrop-blur-xs border border-white/20 p-5 rounded-3xl shadow-2xl relative">
       {/* Trip Type Tabs in Pill format like mockup */}
       <div className="flex bg-black/10 p-1.5 rounded-full mb-6 border border-white/10">
         {(["oneway", "roundtrip", "local"] as const).map((type) => (
