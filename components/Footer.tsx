@@ -185,6 +185,14 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                href="/our-story"
+                className="hover:text-[#D51745] transition-colors duration-150"
+              >
+                Our Story
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/#fleet"
                 className="hover:text-[#D51745] transition-colors duration-150"
               >

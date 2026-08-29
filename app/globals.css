@@ -243,3 +243,21 @@ footer .opacity-30 {
 .dark-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #D51745;
 }
+
+@keyframes fadeInBlur {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-blur {
+  animation: fadeInBlur 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

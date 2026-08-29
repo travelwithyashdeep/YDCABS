@@ -16,6 +16,7 @@ export default function Navbar() {
   }, []);
   const navLinks = [
     { label: "Home", link: "/" },
+    { label: "Our Story", link: "/our-story" },
     { label: "Our Fleet", link: "/#fleet" },
     { label: "Popular Routes", link: "/#routes" },
     { label: "Why Us", link: "/#whyus" },
