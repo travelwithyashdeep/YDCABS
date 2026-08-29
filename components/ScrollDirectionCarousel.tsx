@@ -119,7 +119,7 @@ const ScrollDirectionCarousel = () => {
                 className="relative mr-6 shrink-0 block group cursor-pointer select-none"
               >
                 <div
-                  className="flex aspect-square h-80 sm:h-96 flex-col justify-between p-6 text-neutral-50 relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-950 to-black rounded-3xl"
+                  className="flex aspect-square h-80 sm:h-96 flex-col justify-between p-6 text-neutral-50 relative overflow-hidden bg-brand rounded-3xl"
                   style={{
                     clipPath: "url(#sdc-notch)",
                   }}

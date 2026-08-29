@@ -19,13 +19,51 @@ function RouteGroupCarousel({ group }: RouteGroupProps) {
   const startXRef = useRef(0);
   const scrollLeftRef = useRef(0);
 
+  // Performance Optimization States
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
   // Prepare items for infinite seamless scroll (duplicate array if needed)
   const displayItems =
     group.items.length < 4
       ? [...group.items, ...group.items, ...group.items, ...group.items]
       : [...group.items, ...group.items];
 
+  // Device/Touch detection to disable auto-scroll on mobile/tablet (touchscreens)
   useEffect(() => {
+    const checkDevice = () => {
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
+      const isSmallScreen = window.innerWidth < 768;
+      setShouldAnimate(!isTouch && !isSmallScreen);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
+  // IntersectionObserver to pause scroll loop when out of viewport
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { threshold: 0.01 }
+    );
+
+    observer.observe(container);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Smooth scroll marquee loop (only on Desktop and when visible)
+  useEffect(() => {
+    if (!shouldAnimate || !isIntersecting) return;
+
     let animationFrameId: number;
 
     const smoothScroll = () => {
@@ -46,9 +84,9 @@ function RouteGroupCarousel({ group }: RouteGroupProps) {
 
     animationFrameId = requestAnimationFrame(smoothScroll);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isPaused]);
+  }, [isPaused, shouldAnimate, isIntersecting]);
 
-  // Drag Handlers for Mouse
+  // Drag Handlers for Mouse (Desktop)
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return;
     isMouseDownRef.current = true;
@@ -131,105 +169,108 @@ function RouteGroupCarousel({ group }: RouteGroupProps) {
         </div>
       </div>
 
-      {/* Carousel list of cards */}
-      <div
-        ref={scrollContainerRef}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={handleMouseLeave}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
-        className="flex overflow-x-auto scrollbar-none py-4 px-1 cursor-grab active:cursor-grabbing select-none gap-6"
-        style={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          maskImage:
-            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-        }}
-      >
-        {displayItems.map((place, idx) => (
-          <div
-            key={`${place.slug}-${idx}`}
-            className="w-72 shrink-0 bg-white border border-gray-200/60 rounded-2xl overflow-hidden group shadow-md flex flex-col hover:shadow-lg transition-all duration-200 hover:border-gray-300 mr-1"
-          >
-            {/* Clickable Card Header + Content */}
-            <Link
-              href={`/places/${place.slug}`}
-              className="cursor-pointer flex flex-col flex-1"
-              draggable={false}
+      {/* Carousel list of cards with gradient overlays */}
+      <div className="relative overflow-hidden">
+        {/* Left & Right gradient overlays for the fade effect instead of CPU-heavy CSS mask-image */}
+        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent pointer-events-none z-10" />
+
+        <div
+          ref={scrollContainerRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={handleMouseLeave}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+          className="flex overflow-x-auto scrollbar-none py-4 px-1 cursor-grab active:cursor-grabbing select-none gap-6"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+          }}
+        >
+          {displayItems.map((place, idx) => (
+            <div
+              key={`${place.slug}-${idx}`}
+              className="w-72 shrink-0 bg-white border border-gray-200/60 rounded-2xl overflow-hidden group shadow-md flex flex-col hover:shadow-lg transition-all duration-200 hover:border-gray-300 mr-1"
             >
-              {/* Image Frame */}
-              <div className="relative h-44 overflow-hidden bg-gray-900">
-                <Image
-                  src={place.img}
-                  alt={place.title}
-                  fill
-                  sizes="300px"
-                  className="object-cover transition-transform duration-300 group-hover:scale-102"
-                  unoptimized
-                  draggable={false}
-                />
+              {/* Clickable Card Header + Content */}
+              <Link
+                href={`/places/${place.slug}`}
+                className="cursor-pointer flex flex-col flex-1"
+                draggable={false}
+              >
+                {/* Image Frame */}
+                <div className="relative h-44 overflow-hidden bg-gray-900">
+                  <Image
+                    src={place.img}
+                    alt={place.title}
+                    fill
+                    sizes="300px"
+                    className="object-cover transition-transform duration-300 group-hover:scale-102"
+                    unoptimized
+                    draggable={false}
+                  />
 
-                {/* Tag Overlay */}
-                <span className="absolute top-3 left-3 bg-[#D51745] text-[9px] uppercase font-bold tracking-wider text-neutral-50 px-2.5 py-1 rounded">
-                  {place.tag || "Outstation"}
-                </span>
-              </div>
-
-              {/* Card Contents */}
-              <div className="p-5 flex flex-col flex-1 pb-0">
-                <h4 className="font-extrabold text-sm text-gray-950 tracking-tight line-clamp-1 group-hover:text-[#D51745] transition-colors duration-150 uppercase">
-                  {place.title}
-                </h4>
-
-                <div className="flex items-center gap-1 text-[10px] text-gray-500 font-semibold mt-1">
-                  <MapPin size={10} className="text-[#D51745]" />
-                  <span>{place.location}</span>
-                </div>
-
-                <p className="text-[11px] text-gray-600 mt-2.5 line-clamp-2 leading-relaxed font-semibold">
-                  {place.description}
-                </p>
-
-                {/* Distance Row */}
-                <div className="mt-3.5 pb-3 border-b border-gray-100 text-[10px] flex items-center justify-between">
-                  <span className="text-gray-400 font-semibold uppercase tracking-wider">
-                    Distance
-                  </span>
-                  <span className="font-bold text-gray-900">
-                    {place.distance}
+                  {/* Tag Overlay */}
+                  <span className="absolute top-3 left-3 bg-[#D51745] text-[9px] uppercase font-bold tracking-wider text-neutral-50 px-2.5 py-1 rounded">
+                    {place.tag || "Outstation"}
                   </span>
                 </div>
-              </div>
-            </Link>
 
-            {/* Bottom Buttons Grid */}
-            <div className="p-5 pt-0">
-              <div className="grid grid-cols-2 gap-2 mt-4">
-                {/* Call Now Button */}
-                <button
-                  onClick={handleCall}
-                  className="bg-[#D51745] hover:bg-[#B21035] text-white py-2 rounded-lg text-center text-[10px] font-black uppercase tracking-wider transition-colors duration-150 cursor-pointer shadow-sm active:scale-95 flex items-center justify-center gap-1"
-                >
-                  <Phone size={10} className="stroke-[2.5]" />
-                  <span>Call Now</span>
-                </button>
-                {/* Book Now Button */}
-                <button
-                  onClick={() => handleBook(place)}
-                  className="py-2 rounded-lg text-center border border-neutral-200 hover:bg-neutral-50 text-[10px] font-black text-neutral-900 uppercase tracking-wider transition-colors duration-150 cursor-pointer shadow-sm active:scale-95 flex items-center justify-center gap-1"
-                >
-                  <MessageSquare size={10} className="fill-neutral-900 stroke-none" />
-                  <span>Book Now</span>
-                </button>
+                {/* Card Contents */}
+                <div className="p-5 flex flex-col flex-1 pb-0">
+                  <h4 className="font-extrabold text-sm text-gray-950 tracking-tight line-clamp-1 group-hover:text-[#D51745] transition-colors duration-150 uppercase">
+                    {place.title}
+                  </h4>
+
+                  <div className="flex items-center gap-1 text-[10px] text-gray-500 font-semibold mt-1">
+                    <MapPin size={10} className="text-[#D51745]" />
+                    <span>{place.location}</span>
+                  </div>
+
+                  <p className="text-[11px] text-gray-600 mt-2.5 line-clamp-2 leading-relaxed font-semibold">
+                    {place.description}
+                  </p>
+
+                  {/* Distance Row */}
+                  <div className="mt-3.5 pb-3 border-b border-gray-100 text-[10px] flex items-center justify-between">
+                    <span className="text-gray-400 font-semibold uppercase tracking-wider">
+                      Distance
+                    </span>
+                    <span className="font-bold text-gray-900">
+                      {place.distance}
+                    </span>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Bottom Buttons Grid */}
+              <div className="p-5 pt-0">
+                <div className="grid grid-cols-2 gap-2 mt-4">
+                  {/* Call Now Button */}
+                  <button
+                    onClick={handleCall}
+                    className="bg-[#D51745] hover:bg-[#B21035] text-white py-2 rounded-lg text-center text-[10px] font-black uppercase tracking-wider transition-colors duration-150 cursor-pointer shadow-sm active:scale-95 flex items-center justify-center gap-1"
+                  >
+                    <Phone size={10} className="stroke-[2.5]" />
+                    <span>Call Now</span>
+                  </button>
+                  {/* Book Now Button */}
+                  <button
+                    onClick={() => handleBook(place)}
+                    className="py-2 rounded-lg text-center border border-neutral-200 hover:bg-neutral-50 text-[10px] font-black text-neutral-900 uppercase tracking-wider transition-colors duration-150 cursor-pointer shadow-sm active:scale-95 flex items-center justify-center gap-1"
+                  >
+                    <MessageSquare size={10} className="fill-neutral-900 stroke-none" />
+                    <span>Book Now</span>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
