@@ -6,6 +6,7 @@
   --font-neue-italic: var(--font-neue-haas-italic), sans-serif;
   --font-neue-medium-italic: var(--font-neue-medium-italic), sans-serif;
   --font-italic-medium: var(--font-italic-medium), sans-serif;
+  --font-neue-bold-italic: var(--font-neue-haas-bold-italic), sans-serif;
   --color-brand: #D51745;
   --color-brand-hover: #B21035;
   --color-bg-base: #FAFAFA;

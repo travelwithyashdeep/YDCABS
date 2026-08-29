@@ -90,7 +90,7 @@ export default function PopularCabs() {
                     {/* Name + trip details */}
                     <div className="flex flex-col justify-center">
                       <h2
-                        className={`text-2xl font-bold leading-tight line-clamp-1 ${
+                        className={`font-neue-bold-italic text-2xl font-bold leading-tight line-clamp-1 ${
                           isLast ? "text-neutral-50" : "text-gray-900"
                         }`}
                       >

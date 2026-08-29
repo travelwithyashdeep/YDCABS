@@ -129,7 +129,7 @@ const ScrollDirectionCarousel = () => {
 
                   {/* Top Row: Brand / Type & Rate */}
                   <div className="flex justify-between items-start z-10 w-full">
-                    <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#D51745] bg-[#D51745]/10 px-2.5 py-1 rounded-md">
+                    <span className="font-neue-bold-italic text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#D51745] bg-[#D51745]/10 px-2.5 py-1 rounded-md">
                       {car.name}
                     </span>
                     <span className="text-[11px] sm:text-xs font-bold text-neutral-350">

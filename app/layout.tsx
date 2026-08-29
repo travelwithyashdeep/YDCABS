@@ -45,6 +45,11 @@ const italicMedium = localFont({
   variable: "--font-italic-medium",
 });
 
+const neueHaasBoldItalic = localFont({
+  src: "../fonts/NeueHaasDisplayBoldItalic.ttf",
+  variable: "--font-neue-haas-bold-italic",
+});
+
 export const metadata: Metadata = {
   title: "Yashdeep Travels - Premium Car Rental & Cab Services in Vadodara",
   description:
@@ -112,7 +117,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${neueHaas.variable} ${neueHaasItalic.variable} ${neueHaasMediumItalic.variable} ${italicMedium.variable} h-full antialiased`}
+      className={`${neueHaas.variable} ${neueHaasItalic.variable} ${neueHaasMediumItalic.variable} ${italicMedium.variable} ${neueHaasBoldItalic.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col  text-[#111827]">
         {children}
