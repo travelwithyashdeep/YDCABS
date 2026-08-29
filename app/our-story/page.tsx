@@ -1,20 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { Instrument_Serif } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SpecularButton from "@/components/SpecularButton";
 import { ArrowLeft, Share2, Phone, Check } from "lucide-react";
-
-// Load Google Font Instrument Serif
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: "normal",
-});
-
+import Image from "next/image";
+import banner from "@/public/images/our-story-banner.png";
+import image2 from "@/public/images/buying-car.png";
+import realques from "@/public/images/real-ques.png";
+import covidcris from "@/public/images/covid-crisis.png";
+import growth from "@/public/images/growth phase.png";
 export default function OurStory() {
   const [copied, setCopied] = useState(false);
 
@@ -69,20 +66,15 @@ export default function OurStory() {
           </div>
 
           {/* Article Header */}
-          <div className="space-y-4">
-            <h1
-              className={`${instrumentSerif.className} text-5xl md:text-6xl text-gray-900 tracking-tight leading-tight`}
-            >
+          <div className="">
+            <h1 className="font-instrument text-4xl md:text-6xl text-gray-900 tracking-tight leading-tight">
               Our Story
             </h1>
-            <p className="text-xl md:text-2xl text-gray-500 font-light font-sans tracking-wide leading-relaxed italic">
+            <Image src={banner} alt="banner" />
+            <p className="text-xl  text-gray-500 mt-2 font-light font-sans tracking-wide leading-relaxed">
               "It all started with a cab ride."
             </p>
             <div className="flex items-center text-xs text-gray-400 gap-2 pt-2">
-              <span className="font-semibold uppercase tracking-wider text-[#D51745]">
-                Chronicle
-              </span>
-              <span>•</span>
               <span>June 19, 2019</span>
               <span>•</span>
               <span>5 min read</span>
@@ -92,16 +84,16 @@ export default function OurStory() {
           <hr className="border-[#E5E7EB] my-8" />
 
           {/* Article Content - Centered Reading Column */}
-          <article className="space-y-12 text-gray-800 text-lg md:text-xl font-normal leading-relaxed font-sans antialiased">
+          <article className="space-y-12 text-gray-800 text-lg md:text-xl font-normal leading-relaxed font-sans ">
             {/* SECTION 1: The Spark */}
             <section id="spark" className="space-y-6 pt-4 scroll-mt-24">
-              <p className="font-light text-gray-600 italic border-l-4 border-gray-300 pl-4 py-1">
+              <p className="font-light text-gray-600  border-l-4 border-gray-300 pl-4 py-1">
                 Not a business meeting.
               </p>
-              <p className="font-light text-gray-600 italic border-l-4 border-gray-300 pl-4 py-1">
+              <p className="font-light text-gray-600  border-l-4 border-gray-300 pl-4 py-1">
                 Not a carefully written business plan.
               </p>
-              <p className="font-light text-gray-600 italic border-l-4 border-gray-300 pl-4 py-1">
+              <p className="font-light text-gray-600  border-l-4 border-gray-300 pl-4 py-1">
                 Just a family of four travelling to attend a wedding in 2019.
               </p>
 
@@ -117,9 +109,9 @@ export default function OurStory() {
                 destination, we started talking about exactly that.
               </p>
 
-              <blockquote className="my-8 pl-6 border-l-4 border-[#D51745] italic text-2xl text-gray-900 font-serif font-medium leading-relaxed">
+              <p className="my-8 pl-6 border-l-4 border-[#D51745]  text-2xl  text-gray-900  font-medium leading-relaxed">
                 “Technology is changing everything, isn't it?”
-              </blockquote>
+              </p>
 
               <p>
                 And somewhere between that conversation, curiosity took over.
@@ -152,21 +144,16 @@ export default function OurStory() {
                 What started as a casual conversation slowly turned into a full
                 discussion about the business behind the ride.
               </p>
-
               <p>And then, somewhere along that journey, an idea struck us.</p>
-
               <p className="font-medium text-gray-900 text-xl italic">
                 “Wait… why can't we do this too?”
               </p>
-
               <p>
                 At that time, we didn't even own a car. For years, our family
                 had been thinking about buying one, but buying a car was a big
                 financial decision for us.
               </p>
-
               <p>And then came a simple thought.</p>
-
               <p className="bg-gray-100 p-6 rounded-xl border border-gray-200/60 font-light text-gray-700 text-lg leading-relaxed shadow-sm">
                 What if we bought a car—and instead of letting it remain parked
                 most of the time, we put it to work? We could use it for our
@@ -194,11 +181,10 @@ export default function OurStory() {
 
             {/* SECTION 2: Taking the Leap */}
             <section id="leap" className="space-y-6 scroll-mt-24">
-              <h2
-                className={`${instrumentSerif.className} text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6`}
-              >
+              <h2 className="font-instrument text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6">
                 One conversation changed everything.
               </h2>
+              <Image src={image2} alt="image2" />
 
               <p>
                 The very next day, we found ourselves walking into a car
@@ -227,13 +213,11 @@ export default function OurStory() {
 
               <p>And then we took a leap.</p>
 
-              <div className="bg-gradient-to-r from-gray-950 to-gray-900 text-white p-8 rounded-2xl space-y-4 shadow-xl border border-gray-800">
+              <div className="bg-white text-white p-8  space-y-4 shadow-sm border border-neutral-200">
                 <span className="text-xs uppercase tracking-wider text-[#D51745] font-black">
                   Significant Milestone
                 </span>
-                <h3
-                  className={`${instrumentSerif.className} text-3xl text-white leading-tight`}
-                >
+                <h3 className="font-instrument text-3xl text-white leading-tight">
                   On 19th June 2019, we bought our very first car.
                 </h3>
                 <p className="text-gray-300 text-base md:text-lg font-light leading-relaxed">
@@ -260,12 +244,10 @@ export default function OurStory() {
 
             {/* SECTION 3: Finding Focus */}
             <section id="focus" className="space-y-6 scroll-mt-24">
-              <h2
-                className={`${instrumentSerif.className} text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6`}
-              >
+              <h2 className="font-instrument text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6">
                 Then came the real question: Now what?
               </h2>
-
+              <Image src={realques} alt="real-question" />
               <p>
                 Buying the car was the easy part. Running a business around it
                 was something entirely new.
@@ -308,7 +290,7 @@ export default function OurStory() {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center space-x-3 bg-white border border-gray-150 p-4 rounded-xl shadow-xs"
+                    className="flex items-center space-x-3 bg-white border border-gray-100 p-4 rounded-xl shadow-xs"
                   >
                     <div className="p-1 rounded-full bg-red-50 text-[#D51745]">
                       <Check className="size-4" />
@@ -342,19 +324,16 @@ export default function OurStory() {
 
             {/* SECTION 4: The COVID Pause */}
             <section id="pause" className="space-y-6 scroll-mt-24">
-              <h2
-                className={`${instrumentSerif.className} text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6`}
-              >
+              <h2 className="font-instrument text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6">
                 Just when things started moving, the world stopped.
               </h2>
-
+              <Image src={covidcris} alt="covid-crisi" />
               <p>
                 By early 2020, we had started understanding the business. We
                 could see the potential. We knew that if we continued building
                 the right customer base, this could grow into something much
                 bigger.
               </p>
-
               <div className="p-6 bg-red-50/50 border border-red-100 rounded-xl space-y-3">
                 <span className="text-xs uppercase tracking-wider font-extrabold text-[#D51745]">
                   Crisis Phase
@@ -388,12 +367,10 @@ export default function OurStory() {
 
             {/* SECTION 5: Trust & Growth */}
             <section id="growth" className="space-y-6 scroll-mt-24">
-              <h2
-                className={`${instrumentSerif.className} text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6`}
-              >
+              <h2 className="font-instrument text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6">
                 One car became three.
               </h2>
-
+              <Image src={growth} alt="growth" />
               <p>
                 When travel slowly returned to normal, so did our business. And
                 this time, we were more confident.
@@ -438,9 +415,7 @@ export default function OurStory() {
 
             {/* SECTION 6: Today & Beyond */}
             <section id="today" className="space-y-6 scroll-mt-24">
-              <h2
-                className={`${instrumentSerif.className} text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6`}
-              >
+              <h2 className="font-instrument text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6">
                 The journey kept getting bigger.
               </h2>
 
@@ -449,13 +424,11 @@ export default function OurStory() {
                 travelled more. And Yashdeep Travels continued growing with
                 them.
               </p>
-
               <p>
                 After years of service and several lakh kilometres on the road,
                 we reached another important moment: It was time to begin
                 again—with a new fleet.
               </p>
-
               <p>
                 Today, our journey continues with the{" "}
                 <strong className="text-gray-900 font-semibold">
@@ -472,7 +445,6 @@ export default function OurStory() {
                 , helping us serve different travel needs with greater comfort
                 and reliability.
               </p>
-
               {/* Statistics Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                 <div className="bg-white border border-[#E5E7EB] p-6 rounded-2xl text-center space-y-1 shadow-xs hover:border-[#D51745]/30 transition-all duration-300">
@@ -483,7 +455,6 @@ export default function OurStory() {
                     Happy Customers Served
                   </div>
                 </div>
-
                 <div className="bg-white border border-[#E5E7EB] p-6 rounded-2xl text-center space-y-1 shadow-xs hover:border-[#D51745]/30 transition-all duration-300">
                   <div className="text-3xl md:text-4xl font-extrabold text-[#D51745]">
                     22+ Lakh
@@ -514,18 +485,14 @@ export default function OurStory() {
                 </div>
               </div>
             </section>
-
             <div className="flex justify-center py-6">
               <span className="text-gray-300 tracking-widest text-2xl">
                 • • •
               </span>
             </div>
-
             {/* SECTION 7: Our Philosophy */}
             <section id="philosophy" className="space-y-6 scroll-mt-24">
-              <h2
-                className={`${instrumentSerif.className} text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6`}
-              >
+              <h2 className="font-instrument text-3xl md:text-4xl text-gray-900 tracking-tight leading-tight mt-6">
                 But honestly, our story is not really about cars.
               </h2>
 
@@ -563,9 +530,7 @@ export default function OurStory() {
                 itself is still on its journey.
               </p>
 
-              <p
-                className={`${instrumentSerif.className} text-3xl text-gray-900 text-center italic pt-4`}
-              >
+              <p className="font-instrument text-3xl text-gray-900 text-center italic pt-4">
                 And this is only the beginning….!
               </p>
             </section>
@@ -574,13 +539,11 @@ export default function OurStory() {
           <hr className="border-[#E5E7EB] my-12" />
 
           {/* Book Now Section / CTA */}
-          <div className="bg-[#1A1822] text-white p-8 md:p-12 rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden">
+          <div className="text-white p-8 md:p-12 text-center space-y-6 border border-neutral-200 relative overflow-hidden">
             {/* Ambient Background Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#D51745] opacity-20 blur-3xl rounded-full -z-10 pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14  opacity-40 blur-3xl rounded-full -z-10 pointer-events-none" />
 
-            <h3
-              className={`${instrumentSerif.className} text-4xl text-white tracking-tight`}
-            >
+            <h3 className="font-instrument text-4xl text-white tracking-tight">
               Be a part of our ongoing journey.
             </h3>
             <p className="text-gray-400 max-w-lg mx-auto text-sm md:text-base font-light">
@@ -598,7 +561,7 @@ export default function OurStory() {
                   size="lg"
                   radius={12}
                   textColor="#ffffff"
-                  lineColor="#D51745"
+                  lineColor="#eeeeee"
                   baseColor="#D51745"
                   intensity={0.9}
                   speed={0.4}
@@ -620,7 +583,6 @@ export default function OurStory() {
           </div>
         </div>
       </main>
-
       <Footer />
     </>
   );
