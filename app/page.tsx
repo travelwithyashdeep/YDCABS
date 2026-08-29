@@ -8,6 +8,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import GetInTouch from "@/components/GetInTouch";
 import Footer from "@/components/Footer";
+import StoryRedirect from "@/components/StoryRedirect";
 export default function Home() {
   const schemaData = {
     "@context": "https://schema.org",
@@ -105,6 +106,7 @@ export default function Home() {
         <PopularCabs />
         {/* Infinite Scrolling Draggable Destination Routes */}
         <PopularRoutes />
+        <StoryRedirect />
         {/* ScrollDirectionCarousel for Popular Places */}
 
         {/* Dynamic Statistics Matrix */}

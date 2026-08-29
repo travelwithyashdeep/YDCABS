@@ -49,12 +49,14 @@ export default function Navbar() {
               <span className="whitespace-nowrap">+91 90990 42156</span>
             </a>
             <span className="hidden sm:inline text-gray-600">|</span>
-            <span className="hidden sm:inline">24/7 Cab Booking Vadodara</span>
+            <span className="hidden sm:inline text-[#D51745]">
+              24/7 Cab Booking Vadodara
+            </span>
             <span className="hidden sm:inline text-gray-600">|</span>
             <Link
               href="mailto:bookings@yashdeepcabs.com"
               target="_blank"
-              className="whitespace-nowrap"
+              className="whitespace-nowrap text-[#D51745]"
             >
               bookings@yashdeepcabs.com
             </Link>
@@ -70,7 +72,9 @@ export default function Navbar() {
                 size={12}
                 className="text-[#25D366] text-xs lg:text-md"
               />
-              <span className="whitespace-nowrap">Book via WhatsApp</span>
+              <span className="whitespace-nowrap text-[#D51745]">
+                Book via WhatsApp
+              </span>
             </a>
           </div>
         </div>
