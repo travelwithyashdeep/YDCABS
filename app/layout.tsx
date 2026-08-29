@@ -35,6 +35,16 @@ const neueHaasItalic = localFont({
   variable: "--font-neue-haas-italic",
 });
 
+const neueHaasMediumItalic = localFont({
+  src: "../fonts/italicMedium.ttf",
+  variable: "--font-neue-medium-italic",
+});
+
+const italicMedium = localFont({
+  src: "../fonts/italicMedium.ttf",
+  variable: "--font-italic-medium",
+});
+
 export const metadata: Metadata = {
   title: "Yashdeep Travels - Premium Car Rental & Cab Services in Vadodara",
   description:
@@ -100,7 +110,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${neueHaas.variable} ${neueHaasItalic.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${neueHaas.variable} ${neueHaasItalic.variable} ${neueHaasMediumItalic.variable} ${italicMedium.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col  text-[#111827]">
         {children}
         <ToastContainer position="top-right" autoClose={4000} theme="light" />

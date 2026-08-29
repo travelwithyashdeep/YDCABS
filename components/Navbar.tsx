@@ -92,10 +92,10 @@ export default function Navbar() {
                 <Ydcabs className="object-contain" />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg tracking-tight leading-none text-gray-900">
+                <span className="font-italic-medium text-lg tracking-tight leading-none text-gray-900">
                   Yashdeep
                 </span>
-                <span className="text-[10px] text-gray-500 uppercase tracking-widest leading-none mt-1">
+                <span className="font-italic-medium text-[10px] text-gray-500 uppercase tracking-widest leading-none mt-1">
                   Travels
                 </span>
               </div>
