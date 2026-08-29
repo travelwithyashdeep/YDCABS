@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,8 +12,53 @@ import image2 from "@/public/images/buying-car.png";
 import realques from "@/public/images/real-ques.png";
 import covidcris from "@/public/images/covid-crisis.png";
 import growth from "@/public/images/growth phase.png";
+
 export default function OurStory() {
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const textSelectors = "h1, h2, h3, p, li, blockquote";
+    const container = document.querySelector("main");
+    if (!container) return;
+
+    const elements = container.querySelectorAll(textSelectors);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-4");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    elements.forEach((el) => {
+      // Exclude text tags inside buttons or links
+      if (el.closest("button") || el.closest("a")) {
+        return;
+      }
+
+      el.classList.add(
+        "opacity-0",
+        "translate-y-4",
+        "transition-all",
+        "duration-700",
+        "ease-out"
+      );
+      observer.observe(el);
+    });
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   const handleShare = () => {
     if (navigator.share) {
