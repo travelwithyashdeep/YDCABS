@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Navigation } from "lucide-react";
-import Image from "next/image";
 import { fleetData as FLEET } from "@/data/fleetData";
 import ScrollDirectionCarousel from "./ScrollDirectionCarousel";
 export default function PopularCabs() {

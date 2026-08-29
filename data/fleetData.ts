@@ -52,7 +52,7 @@ export const fleetData: FleetCar[] = [
     ],
   },
   {
-    name: "Tempo Traveler",
+    name: "Tempo/Urbania",
     options: "(Urbania)",
     image: "/cars/urbania-white.png",
     rate: "₹35/km",
@@ -67,7 +67,7 @@ export const fleetData: FleetCar[] = [
   },
   {
     name: "Luxury",
-    options: "(BMW, Jaguar)",
+    options: "(BMW, Jaguar, Mercedes, Audi, Range Rover)",
     image: "/cars/bmw.png",
     rate: "Custom",
     minLimit: "Flexible",
