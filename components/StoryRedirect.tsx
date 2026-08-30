@@ -1,7 +1,4 @@
 "use client";
-
-import Link from "next/link";
-import StarBorder from "@/components/StarBorder";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 export default function StoryRedirect() {
