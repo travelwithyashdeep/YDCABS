@@ -250,7 +250,6 @@ export default function OurStory() {
               </span>
             </div>
           </section>
-
           {/* SECTION 4: The COVID Pause (Image Left, Text Right) */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center section-fade-in opacity-0 translate-y-12 transition-all duration-700 ease-out">
             <div className="space-y-6">
@@ -436,7 +435,7 @@ export default function OurStory() {
 
                 <a
                   href="tel:+919099042156"
-                  className="inline-flex items-center justify-center space-x-2 text-sm font-semibold text-gray-700 hover:text-[#D51745] hover:bg-neutral-50 transition-all duration-200 border border-neutral-300 px-6 py-3.5 rounded-lg w-full sm:w-auto cursor-pointer"
+                  className="inline-flex items-center justify-center space-x-2 text-sm font-semibold text-gray-700 hover:text-[#D51745] hover:bg-neutral-50 transition-all duration-200 border border-neutral-300 px-12 py-3.5 rounded-lg w-fit cursor-pointer"
                 >
                   <Phone className="size-4" />
                   <span>Call Helpline</span>
