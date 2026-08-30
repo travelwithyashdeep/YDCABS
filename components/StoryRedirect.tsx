@@ -3,7 +3,7 @@
 import Link from "next/link";
 import StarBorder from "@/components/StarBorder";
 import { ChevronRight } from "lucide-react";
-
+import Link from "next/link";
 export default function StoryRedirect() {
   return (
     <section className="py-16 bg-[#FAFAFA] border-y border-gray-200/50">
@@ -20,9 +20,12 @@ export default function StoryRedirect() {
           across India, read the story of how we built Yashdeep Travels.
         </p>
         <div className="pt flex justify-center">
-          <div className="bg-white flex items-center justify-center gap px-7 py-3 shadow-lg  cursor-pointer rounded-lg ">
+          <Link
+            href="/our-story"
+            className="bg-white flex items-center justify-center gap px-7 py-3 shadow-lg  cursor-pointer rounded-lg "
+          >
             Read Story <ChevronRight />
-          </div>
+          </Link>
         </div>
       </div>
     </section>
