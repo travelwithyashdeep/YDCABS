@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import CuelumeBinder from "@/components/CuelumeBinder";
 const neueHaas = localFont({
   src: [
     {
@@ -125,6 +126,7 @@ export default function RootLayout({
       className={`${neueHaas.variable} ${neueHaasItalic.variable} ${neueHaasMediumItalic.variable} ${italicMedium.variable} ${neueHaasBoldItalic.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col  text-[#111827]">
+        <CuelumeBinder />
         {children}
         <ToastContainer position="top-right" autoClose={4000} theme="light" />
       </body>

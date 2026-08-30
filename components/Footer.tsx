@@ -209,6 +209,14 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                href="/custome-routes"
+                className="hover:text-[#D51745] transition-colors duration-150"
+              >
+                Custom Routes
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/#whyus"
                 className="hover:text-[#D51745] transition-colors duration-150"
               >

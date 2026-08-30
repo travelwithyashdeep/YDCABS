@@ -62,7 +62,7 @@ export default function PopularCabs() {
                 </div>
                 {/* Main card — sits ON TOP, z-10, its bottom edge stops short so the footer peeks out below */}
                 <div
-                  className={`relative z-10 rounded-3xl p-4 pb-6 transition-all duration-300 ${
+                  className={`relative z-10 rounded-3xl p-4 pb-2 transition-all duration-300 ${
                     isLast
                       ? "bg-brand border border-[#D4AF37]/50 shadow-[0_8px_30px_rgba(212,175,55,0.15)] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.25)] group-hover:border-[#D4AF37]"
                       : "bg-white border border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]"

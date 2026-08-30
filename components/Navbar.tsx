@@ -19,6 +19,7 @@ export default function Navbar() {
     { label: "Our Story", link: "/our-story" },
     { label: "Our Fleet", link: "/#fleet" },
     { label: "Popular Routes", link: "/#routes" },
+    { label: "Custom Routes", link: "/custome-routes" },
     { label: "Why Us", link: "/#whyus" },
     { label: "FAQs", link: "/#faq" },
     { label: "Contact Us", link: "/#contact" },

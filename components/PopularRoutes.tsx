@@ -140,11 +140,11 @@ function RouteGroupCarousel({ group }: RouteGroupProps) {
       <div className="flex items-end justify-between mb-6 px-1">
         <div>
           {group.subtitle && (
-            <span className="block text-xs md:text-sm text-[#D51745] mb-1 font-neue-italic tracking-wide">
+            <span className="block text-xs md:text-sm text-[#D51745] mb-3 font-neue-italic tracking-wide">
               {group.subtitle}
             </span>
           )}
-          <h3 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight flex items-center gap-2 uppercase">
+          <h3 className="text-xl md:text-3xl font-black text-gray-900 tracking-wide flex items-center gap-2 uppercase">
             <span className="w-1.5 h-6 bg-[#D51745] rounded-full inline-block" />
             {group.title}
           </h3>
@@ -288,7 +288,7 @@ export default function PopularRoutes() {
           <div className="inline-block px-4 py-1 bg-[#D51745] text-white font-extrabold text-[10px] uppercase tracking-widest rounded-full shadow-sm">
             POPULAR PLACES & TOURS
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-neutral-900 tracking-tight uppercase">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-neutral-900 tracking-wide uppercase">
             EXPLORE TOP DESTINATIONS
           </h2>
           <p className="text-neutral-500 text-xs sm:text-sm font-semibold">

@@ -3,9 +3,9 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 export default function StoryRedirect() {
   return (
-    <section className="py-16 bg-[#FAFAFA] border-y border-gray-200/50">
+    <section className="py-16 bg-bg-base border-y border-gray-200/50">
       <div className="max-w-5xl mx-auto px-6 text-center space-y-6">
-        <span className="text-xs uppercase tracking-widest text-[#D51745] font-black">
+        <span className="text-xs uppercase tracking-widest text-brand font-black">
           The Yashdeep Journey
         </span>
         <h2 className="font-semibold text-4xl md:text-4xl text-gray-900 tracking-tight leading-tight max-w-2xl mx-auto">

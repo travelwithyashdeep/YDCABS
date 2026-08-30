@@ -69,7 +69,7 @@ export const fleetData: FleetCar[] = [
     name: "Luxury",
     options: "(BMW, Jaguar, Mercedes, Audi, Range Rover)",
     image: "/cars/bmw.png",
-    rate: "Custom",
+    rate: "Customzied",
     minLimit: "Flexible",
     allowance: "Included",
     features: ["Luxury Recliners", "Perfect for Events"],
