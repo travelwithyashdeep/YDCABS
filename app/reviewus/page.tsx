@@ -11,6 +11,9 @@ export default function ReviewUs() {
   const [comment, setComment] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
+  const GOOGLE_PLACE_ID = "ChIJW-Dg4wDJXzkRoqx76Wrz02U";
+  const GOOGLE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -22,29 +25,28 @@ export default function ReviewUs() {
     setIsSubmitting(true);
 
     try {
-      // Copy review comment to clipboard
-      if (comment.trim()) {
-        await navigator.clipboard.writeText(comment.trim());
-        toast.success("Review copied to clipboard! Paste it on Google.");
-      } else {
-        toast.info("Opening Google reviews page...");
-      }
+      if (rating >= 4) {
+        // Happy customer -> send to Google
+        if (comment.trim()) {
+          await navigator.clipboard.writeText(comment.trim());
+          toast.success("Review copied! Paste it on Google.");
+        } else {
+          toast.info("Opening Google reviews...");
+        }
 
-      // Short delay for user feedback before redirecting
-      setTimeout(() => {
-        window.open(
-          "https://www.google.com/search?q=Yashdeep+Travels+Vadodara#lrd=0x395fc66ab8c2f7f3:0x4f37ecddd18a20d2,3,1",
-          "_blank"
-        );
+        setTimeout(() => {
+          window.open(GOOGLE_REVIEW_URL, "_blank");
+          setIsSubmitting(false);
+        }, 1200);
+      } else {
+        // Unhappy customer -> capture feedback privately instead
+        toast.success("Thanks for your feedback — we'll use it to improve!");
+        setComment("");
+        setRating(0);
         setIsSubmitting(false);
-      }, 1200);
+      }
     } catch (err) {
-      console.error("Failed to copy review", err);
-      // Fallback redirect
-      window.open(
-        "https://www.google.com/search?q=Yashdeep+Travels+Vadodara#lrd=0x395fc66ab8c2f7f3:0x4f37ecddd18a20d2,3,1",
-        "_blank"
-      );
+      console.error("Failed to submit", err);
       setIsSubmitting(false);
     }
   };
@@ -141,7 +143,15 @@ export default function ReviewUs() {
             disabled={isSubmitting}
             className="w-full bg-[#D51745] hover:bg-[#B21035] text-white font-extrabold py-3.5 px-6 rounded-xl transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-red-500/10 text-sm disabled:opacity-50"
           >
-            <span>{isSubmitting ? "Opening Google..." : "Submit Review"}</span>
+            <span>
+              {isSubmitting
+                ? rating >= 4
+                  ? "Opening Google..."
+                  : "Submitting..."
+                : rating > 0 && rating < 4
+                ? "Submit Feedback"
+                : "Submit Review"}
+            </span>
           </button>
         </form>
       </div>

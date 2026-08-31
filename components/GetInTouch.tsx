@@ -30,22 +30,23 @@ export default function GetInTouch() {
               <span className="w-10 h-10 rounded-lg bg-[#D51745]/10 border border-[#D51745]/20 flex items-center justify-center text-[#D51745] shrink-0">
                 <Phone size={18} />
               </span>
-              <div>
+              <div className="flex-1 min-w-0">
                 <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   Call Helpline
                 </h4>
-                <div className="flex items-center justify-center flex-wrap">
-                  {" "}
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-1">
                   <a
                     href="tel:+919099042156"
-                    className="block font-black text-lg mr-1 text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150"
+                    className="font-black text-base sm:text-lg text-gray-900 hover:text-[#D51745] transition-colors duration-150 whitespace-nowrap"
                   >
                     +91 90990 42156
                   </a>
-                  ||
+                  <span className="text-gray-300 font-medium select-none hidden sm:inline">
+                    /
+                  </span>
                   <a
                     href="tel:+919825872134"
-                    className="block font-black text-lg ml-1 text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150"
+                    className="font-black text-base sm:text-lg text-gray-900 hover:text-[#D51745] transition-colors duration-150 whitespace-nowrap"
                   >
                     +91 98258 72134
                   </a>

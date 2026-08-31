@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Compass, Users, Milestone, Star } from "lucide-react";
+import { Compass, Users, Milestone, Receipt } from "lucide-react";
 
 interface MetricItem {
   value: string;
@@ -12,28 +12,28 @@ interface MetricItem {
 
 const METRICS: MetricItem[] = [
   {
-    value: "500,000+",
-    label: "Kilometers Driven",
-    desc: "Safe & comfortable journeys completed",
-    icon: <Milestone size={24} className="text-[#D51745]" />,
-  },
-  {
-    value: "15,000+",
+    value: "5,000+",
     label: "Happy Customers",
     desc: "Families, tourists & corporate clients",
     icon: <Users size={24} className="text-[#D51745]" />,
   },
   {
-    value: "250+",
-    label: "Tour Routes Covered",
+    value: "2,200,000+",
+    label: "Km Driven",
+    desc: "Safe & comfortable journeys completed",
+    icon: <Milestone size={24} className="text-[#D51745]" />,
+  },
+  {
+    value: "10,000+",
+    label: "Trips",
     desc: "Intercity, local, and outstation trips",
     icon: <Compass size={24} className="text-[#D51745]" />,
   },
   {
-    value: "4.9 / 5",
-    label: "Google Rating",
-    desc: "Highly rated driver manners & cleanliness",
-    icon: <Star size={24} className="text-[#D51745] fill-[#D51745]" />,
+    value: "₹35,00,000+",
+    label: "Toll Tax Paid",
+    desc: "Smooth & hassle-free highway journeys",
+    icon: <Receipt size={24} className="text-[#D51745]" />,
   },
 ];
 
