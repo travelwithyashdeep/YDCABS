@@ -26,7 +26,7 @@ export default function Hero() {
               className="bg-brand rounded-3xl hover:scale-110 transition duration-200 text-neutral-50 font-medium px-4 py-3 flex items-center gap-2"
             >
               <Phone size={18} />
-              <span>Book a Call</span>
+              <span>Book a Cab</span>
             </Link>{" "}
             <a
               href={`https://wa.me/919099042156?text=${encodeURIComponent("Hello Yashdeep Travels, I am visiting your website and would like to inquire about cab bookings, outstation packages, and vehicle availability. Please connect me with an agent. Thank you.")}`}
