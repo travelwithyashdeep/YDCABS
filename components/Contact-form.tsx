@@ -658,7 +658,7 @@ Please share the availability and customized fare estimates at your earliest con
             }`}
           >
             <option value="" disabled className="text-gray-400">
-              Select Cab
+              Cab Type
             </option>
             <option value="Sedan (Dzire/Etios)" className="text-gray-900">
               Sedan (Dzire/Etios)
