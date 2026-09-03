@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import SpecularButton from "@/components/SpecularButton";
-import { Phone, MessageSquare, Menu, X } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 import Ydcabs from "./Ydcabs";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,51 +35,6 @@ export default function Navbar() {
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-30 flex flex-col">
-        {/* Top Bar for Contact Details */}
-        <div
-          className={`w-full bg-[#08070A] border-b border-[#221F2B]/50 px-4 md:px-8 text-xs text-gray-400 flex justify-between items-center transition-all duration-300 ${
-            scrolled ? "h-0 py-0 border-b-0 overflow-hidden" : "py-2"
-          }`}
-        >
-          <div className="flex items-center gap-2">
-            <a
-              href="tel:+919099042156"
-              className="flex items-center gap hover:text-white transition-colors duration-150"
-            >
-              <Phone size={12} className="text-[#D51745]" />
-              <span className="whitespace-nowrap">+91 90990 42156</span>
-            </a>
-            <span className="hidden sm:inline text-gray-600">|</span>
-            <span className="hidden sm:inline text-[#D51745]">
-              24/7 Cab Booking Vadodara
-            </span>
-            <span className="hidden sm:inline text-gray-600">|</span>
-            <Link
-              href="mailto:bookings@yashdeepcabs.com"
-              target="_blank"
-              className="whitespace-nowrap text-[#D51745]"
-            >
-              bookings@yashdeepcabs.com
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://wa.me/919099042156"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-[#25D366] transition-colors duration-150 font-medium"
-            >
-              <MessageSquare
-                size={12}
-                className="text-[#25D366] text-xs lg:text-md"
-              />
-              <span className="whitespace-nowrap text-[#D51745]">
-                Book via WhatsApp
-              </span>
-            </a>
-          </div>
-        </div>
-
         {/* Main Header */}
         <header
           className={`w-full transition-all duration-300 ${
@@ -185,7 +140,7 @@ export default function Navbar() {
         </header>
       </div>
       {/* Spacer to prevent layout overlap beneath fixed header */}
-      <div className="h-28 shrink-0" />
+      <div className="h-20 shrink-0" />
     </>
   );
 }

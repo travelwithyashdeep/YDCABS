@@ -1,34 +1,17 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import CuelumeBinder from "@/components/CuelumeBinder";
-const neueHaas = localFont({
-  src: [
-    {
-      path: "../fonts/NeueHaasDisplayLight.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../fonts/NeueHaasDisplayRoman.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/NeueHaasDisplayMediu.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../fonts/NeueHaasDisplayBold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-neue-haas",
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
 const neueHaasItalic = localFont({
@@ -49,11 +32,6 @@ const italicMedium = localFont({
 const neueHaasBoldItalic = localFont({
   src: "../fonts/NeueHaasDisplayBoldItalic.ttf",
   variable: "--font-neue-haas-bold-italic",
-});
-
-const instrumentSerif = localFont({
-  src: "../fonts/InstrumentSerif-Regular.ttf",
-  variable: "--font-instrument-serif",
 });
 
 export const metadata: Metadata = {
@@ -123,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${neueHaas.variable} ${neueHaasItalic.variable} ${neueHaasMediumItalic.variable} ${italicMedium.variable} ${neueHaasBoldItalic.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${poppins.variable} ${neueHaasItalic.variable} ${neueHaasMediumItalic.variable} ${italicMedium.variable} ${neueHaasBoldItalic.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col  text-[#111827]">
         <CuelumeBinder />

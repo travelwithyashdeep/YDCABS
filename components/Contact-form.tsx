@@ -99,7 +99,7 @@ export default function ContactForm() {
   const [dropoff, setDropoff] = useState("");
   const [pickupDate, setPickupDate] = useState("");
   const [pickupTime, setPickupTime] = useState("");
-  const [carType, setCarType] = useState("Sedan (Dzire/Etios)");
+  const [carType, setCarType] = useState("");
 
   // AQI states
   const [pickupAqi, setPickupAqi] = useState<number | null>(null);
@@ -379,6 +379,10 @@ export default function ContactForm() {
       toast.error("Please enter a dropoff location.");
       return;
     }
+    if (!carType) {
+      toast.error("Please select a cab.");
+      return;
+    }
     if (!pickupDate) {
       toast.error("Please select a pickup date.");
       return;
@@ -431,7 +435,7 @@ Please share the availability and customized fare estimates at your earliest con
   };
 
   return (
-    <div className="w-full max-w-md bg-white/10 backdrop-blur-xs border border-white/20 p-5 rounded-3xl shadow-2xl relative">
+    <div className="w-full max-w-md bg-slate-900/40 sm:bg-slate-900/35 backdrop-blur-md border border-white/30 p-4 sm:p-5 rounded-3xl shadow-2xl relative">
       {/* Trip Type Tabs in Pill format like mockup */}
       <div className="flex bg-black/10 p-1.5 rounded-full mb-6 border border-white/10">
         {(["oneway", "roundtrip", "local"] as const).map((type) => (
@@ -649,16 +653,30 @@ Please share the availability and customized fare estimates at your earliest con
           <select
             value={carType}
             onChange={(e) => setCarType(e.target.value)}
-            className="w-full pl-4 pr-10 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-gray-900 appearance-none cursor-pointer focus:outline-none focus:border-red-500"
+            className={`w-full pl-4 pr-10 py-3.5 rounded-xl bg-white border border-gray-200 text-sm appearance-none cursor-pointer focus:outline-none focus:border-red-500 transition-colors duration-150 ${
+              carType ? "text-gray-900 font-medium" : "text-gray-400"
+            }`}
           >
-            <option value="Sedan (Dzire/Etios)">Sedan (Dzire/Etios)</option>
-            <option value="SUV (Ertiga/Triber)">SUV (Ertiga/Triber)</option>
+            <option value="" disabled className="text-gray-400">
+              Select Cab
+            </option>
+            <option value="Sedan (Dzire/Etios)" className="text-gray-900">
+              Sedan (Dzire/Etios)
+            </option>
+            <option value="SUV (Ertiga/Triber)" className="text-gray-900">
+              SUV (Ertiga/Triber)
+            </option>
             {tripType !== "local" && (
               <>
-                <option value="Premium SUV (Innova Crysta)">
+                <option
+                  value="Premium SUV (Innova Crysta)"
+                  className="text-gray-900"
+                >
                   Premium SUV (Innova Crysta)
                 </option>
-                <option value="Tempo Traveller">Tempo Traveller</option>
+                <option value="Tempo Traveller" className="text-gray-900">
+                  Tempo Traveller
+                </option>
               </>
             )}
           </select>
@@ -668,7 +686,7 @@ Please share the availability and customized fare estimates at your earliest con
         </div>
 
         {/* Date and Time Pickers Side-by-Side */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div className="relative">
             <span className="absolute left-3 top-3.5 text-gray-400">
               <Calendar size={14} />
@@ -677,7 +695,7 @@ Please share the availability and customized fare estimates at your earliest con
               type="date"
               value={pickupDate}
               onChange={(e) => setPickupDate(e.target.value)}
-              className="w-full pl-8 pr-2 py-3 rounded-xl bg-white border border-gray-200 text-xs text-gray-900 focus:outline-none"
+              className="w-full pl-8 pr-2 py-3 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-900 focus:outline-none focus:border-red-500"
             />
           </div>
           <div className="relative">
@@ -688,7 +706,7 @@ Please share the availability and customized fare estimates at your earliest con
               type="time"
               value={pickupTime}
               onChange={(e) => setPickupTime(e.target.value)}
-              className="w-full pl-8 pr-2 py-3 rounded-xl bg-white border border-gray-200 text-xs text-gray-900 focus:outline-none"
+              className="w-full pl-8 pr-2 py-3 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-900 focus:outline-none focus:border-red-500"
             />
           </div>
         </div>
@@ -696,7 +714,7 @@ Please share the availability and customized fare estimates at your earliest con
         {/* Submit Button in Crimson Red */}
         <button
           type="submit"
-          className="w-full bg-[#D51745] hover:scale-110  hover:bg-[#B21035] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red-500/10 text-sm"
+          className="w-full bg-[#D51745] hover:bg-[#B21035] hover:scale-[1.02] active:scale-[0.98] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red-500/20 text-sm"
         >
           <span>Book Cab</span>
           <ArrowRight size={14} />

@@ -1,22 +1,22 @@
 import Link from "next/link";
-import React from "react";
 import { Phone } from "lucide-react";
 import ContactForm from "./Contact-form";
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center py-16 px-4 md:px-8 overflow-hidden bg-gray-100">
+    <section className="relative min-h-[70vh] lg:min-h-[80vh] flex items-center py-10 sm:py-14 lg:py-16 pb-28 sm:pb-20 lg:pb-16 px-4 md:px-8 overflow-hidden bg-[#faf8f5]">
       {/* Background image from public/images/hero-bg.png */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-[position:center_top] sm:bg-[position:center_18%] bg-no-repeat pointer-events-none transition-all duration-300"
         style={{ backgroundImage: `url('/images/hero-bg.png')` }}
       />
       {/* Subtle overlay to ensure text stands out slightly but remains clean */}
-      <div className="absolute inset-0 bg-black/10 z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/15 z-0 pointer-events-none" />
       {/* Main Container */}
       <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left Column: Yellow Headline */}
         <div className="lg:col-span-7 flex flex-col items-start text-left space-y-4">
-          <h1 className="text-5xl  md:text-7xl font-black tracking-tight text-[#FFD700] drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] leading-none ">
+          {/* drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] */}
+          <h1 className="text-5xl  md:text-7xl font-bold drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]  tracking-tight text-neutral-50  leading-none ">
             Where will you <br />
             go next?
           </h1>

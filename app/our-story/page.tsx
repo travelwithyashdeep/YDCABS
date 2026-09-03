@@ -95,10 +95,10 @@ export default function OurStory() {
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center section-fade-in opacity-0 translate-y-12 transition-all duration-700 ease-out">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h1 className="font-instrument text-4xl sm:text-5xl md:text-6xl text-gray-900 tracking-tight leading-tight">
+                <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl text-gray-900 tracking-tight leading-tight">
                   Our Story
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-900 font-instrument ">
+                <p className="text-xl md:text-2xl text-gray-900 font-medium">
                   It all started with a cab ride.
                 </p>
                 <div className="flex items-center text-xs text-gray-400 gap-2 pt-1 font-sans">
@@ -141,7 +141,7 @@ export default function OurStory() {
           {/* SECTION 2: Asking Questions & The Idea (Image Left, Text Right) */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center section-fade-in opacity-0 translate-y-12 transition-all duration-700 ease-out">
             <div className="space-y-6">
-              <blockquote className="font-instrument text-2xl md:text-3xl text-gray-900  leading-relaxed">
+              <blockquote className="text-2xl md:text-3xl text-gray-900 leading-relaxed italic font-medium">
                 Technology is changing everything, isn't it?
               </blockquote>
               <div className="space-y-6 text-gray-800 text-lg md:text-xl leading-[1.8] font-sans">
@@ -167,7 +167,7 @@ export default function OurStory() {
                   somewhere along that journey, an idea struck us.
                 </p>
               </div>
-              <blockquote className="font-instrument text-2xl md:text-3xl text-gray-900  leading-relaxed">
+              <blockquote className="text-2xl md:text-3xl text-gray-900 leading-relaxed italic font-medium">
                 Wait… why can't we do this too?
               </blockquote>
               <div className="space-y-6 text-gray-800 text-lg md:text-xl leading-[1.8] font-sans">

@@ -22,19 +22,18 @@ export default function GetInTouch() {
 
         {/* Two Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Contact Details (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Contact Details (Single Unified Box) */}
+          <div className="lg:col-span-5 bg-white border border-neutral-200/90 rounded-3xl p-6 sm:p-7 shadow-sm space-y-5">
             {/* Phone Info */}
-
-            <div className="p-5 flex items-start border border-neutral-200 rounded-xl gap-4">
-              <span className="w-10 h-10 rounded-lg bg-[#D51745]/10 border border-[#D51745]/20 flex items-center justify-center text-[#D51745] shrink-0">
+            <div className="flex items-start gap-4">
+              <span className="w-10 h-10 rounded-xl bg-[#D51745]/10 border border-[#D51745]/20 flex items-center justify-center text-[#D51745] shrink-0">
                 <Phone size={18} />
               </span>
               <div className="flex-1 min-w-0">
                 <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   Call Helpline
                 </h4>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-1">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
                   <a
                     href="tel:+919099042156"
                     className="font-black text-base sm:text-lg text-gray-900 hover:text-[#D51745] transition-colors duration-150 whitespace-nowrap"
@@ -53,12 +52,15 @@ export default function GetInTouch() {
                 </div>
               </div>
             </div>
+
+            <hr className="border-gray-100" />
+
             {/* WhatsApp Info */}
-            <div className="p-5 flex items-start border border-neutral-200 rounded-xl gap-4">
-              <span className="w-10 h-10 rounded-lg bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0">
+            <div className="flex items-start gap-4">
+              <span className="w-10 h-10 rounded-xl bg-[#D51745]/10 border border-[#D51745]/20 flex items-center justify-center text-[#D51745] shrink-0">
                 <MessageSquare size={18} />
               </span>
-              <div>
+              <div className="flex-1 min-w-0">
                 <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   WhatsApp Support
                 </h4>
@@ -66,47 +68,56 @@ export default function GetInTouch() {
                   href="https://wa.me/919099042156"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block font-black text-lg text-gray-900 hover:text-[#25D366] mt-1 transition-colors duration-150"
+                  className="block font-black text-base sm:text-lg text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150"
                 >
                   +91 90990 42156
                 </a>
               </div>
             </div>
+
+            <hr className="border-gray-100" />
+
             {/* Email Info */}
-            <div className="p-5 flex items-start border border-neutral-200 rounded-xl gap-4">
-              <span className="w-10 h-10 rounded-lg bg-[#00B4D8]/10 border border-[#00B4D8]/20 flex items-center justify-center text-[#00B4D8] shrink-0">
+            <div className="flex items-start gap-4">
+              <span className="w-10 h-10 rounded-xl bg-[#D51745]/10 border border-[#D51745]/20 flex items-center justify-center text-[#D51745] shrink-0">
                 <Mail size={18} />
               </span>
-              <div>
+              <div className="flex-1 min-w-0">
                 <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   Email Inquiry
                 </h4>
                 <a
                   href="mailto:bookings@yashdeepcabs.com"
-                  className="block font-black text-sm md:text-base text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150"
+                  className="block font-black text-sm md:text-base text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150 truncate"
                 >
                   bookings@yashdeepcabs.com
                 </a>
               </div>
             </div>
+
+            <hr className="border-gray-100" />
+
             {/* Address */}
-            <div className="p-5 flex items-start border border-neutral-200 rounded-xl gap-4">
-              <span className="w-10 h-10 rounded-lg bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] shrink-0">
+            <div className="flex items-start gap-4">
+              <span className="w-10 h-10 rounded-xl bg-[#D51745]/10 border border-[#D51745]/20 flex items-center justify-center text-[#D51745] shrink-0">
                 <MapPin size={18} />
               </span>
-              <div>
+              <div className="flex-1 min-w-0">
                 <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   Office Address
                 </h4>
-                <p className="text-xs md:text-sm text-gray-800 mt-1.5 leading-relaxed font-semibold">
+                <p className="text-xs md:text-sm text-gray-800 mt-1 leading-relaxed font-semibold">
                   101 Radhey Flats, 13/14 Sumant Park, opp. Shrenik, Par Park,
                   Akota, Vadodara, Gujarat 390007
                 </p>
               </div>
             </div>
+
+            <hr className="border-gray-100" />
+
             {/* Availability */}
-            <div className="p-5 rounded-xl bg-gray-50 border border-gray-200 flex items-center gap-3 text-xs text-gray-700">
-              <Clock size={16} className="text-[#D51745]" />
+            <div className="p-3.5 rounded-xl bg-gray-50 border border-gray-200/80 flex items-center gap-3 text-xs text-gray-700">
+              <Clock size={16} className="text-[#D51745] shrink-0" />
               <span className="font-medium">
                 We operate 24/7. Outstation travel pickups can be arranged at
                 any custom timing.

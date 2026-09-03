@@ -108,7 +108,7 @@ const ScrollDirectionCarousel = () => {
       >
         <div ref={trackRef} className="flex w-max will-change-transform">
           {cars.map((car, i) => {
-            const waMsg = `Hello Yashdeep Travels, I would like to check the availability and customized fare quotes for renting a *${car.name} ${car.options}* cab. Kindly share details at your earliest convenience. Thank you.`;
+            const waMsg = `Hello Yashdeep Travels,\n\nI would like to check the availability and customized fare quotes for renting a \n\n*${car.name} ${car.options}* cab. \n\nKindly share details at your earliest convenience. \n\nThank you.`;
             const waLink = `https://wa.me/919099042156?text=${encodeURIComponent(waMsg)}`;
             return (
               <a
@@ -141,12 +141,12 @@ const ScrollDirectionCarousel = () => {
                   </div>
 
                   {/* Middle Row: Vehicle Image with Hover Effect & Glow */}
-                  <div className="absolute inset-0 flex items-center justify-center -translate-y-4">
-                    <div className="absolute w-40 h-40 bg-[#D51745]/15 blur-3xl rounded-full pointer-events-none" />
+                  <div className="absolute inset-0 flex items-center justify-center -translate-y-8 -translate-x-2">
+                    <div className="absolute w-36 h-36 bg-[#D51745]/15 blur-3xl rounded-full pointer-events-none" />
                     <img
                       src={car.image}
                       alt={car.name}
-                      className="w-[85%] h-auto object-contain group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-[0_12px_20px_rgba(0,0,0,0.6)]"
+                      className="w-[72%] max-h-[145px] sm:max-h-[165px] object-contain group-hover:scale-104 transition-transform duration-500 ease-out drop-shadow-[0_12px_20px_rgba(0,0,0,0.6)]"
                     />
                   </div>
 
@@ -165,7 +165,7 @@ const ScrollDirectionCarousel = () => {
                 </div>
 
                 {/* Bottom Right Notch Button with WhatsApp Green */}
-                <div className="absolute bottom-0 right-0 flex h-14 w-24 items-center justify-center rounded-full bg-[#25D366] text-neutral-50 shadow-lg active:scale-95 transition-all duration-150 hover:bg-[#20ba59]">
+                <div className="absolute bottom-0 right-0 flex h-13 w-20 sm:h-14 sm:w-22 items-center justify-center rounded-full bg-[#25D366] text-neutral-50 shadow-lg active:scale-95 transition-all duration-150 hover:bg-[#20ba59]">
                   <WhatsAppIcon />
                 </div>
               </a>

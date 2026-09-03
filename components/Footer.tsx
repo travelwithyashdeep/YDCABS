@@ -3,102 +3,6 @@ import Link from "next/link";
 import { Phone, ArrowUp, MapPin, Mail } from "lucide-react";
 import Strands from "@/components/Stards";
 import Ydcabs from "./Ydcabs";
-const footerDestinations = [
-  {
-    col: [
-      {
-        title: "Vadodara",
-        links: [
-          { name: "Laxmi Vilas Palace", href: "/places/laxmi-vilas-palace" },
-          { name: "Statue of Unity", href: "/places/statue-of-unity-local" },
-          { name: "Kirti Mandir", href: "/places/kirti-mandir" },
-          { name: "Sur Sagar Lake", href: "/places/sur-sagar-lake" },
-          { name: "Nilkanthdham Poicha", href: "/places/nilkanthdham-poicha" },
-        ],
-      },
-      {
-        title: "Popular Outstation Destinations - Maharashtra",
-        links: [
-          { name: "Mumbai", href: "/places/mumbai" },
-          { name: "Nashik", href: "/places/nashik" },
-          { name: "Shirdi", href: "/places/shirdi" },
-          { name: "Trimbakeshwar", href: "/places/trimbakeshwar" },
-        ],
-      },
-    ],
-  },
-  {
-    col: [
-      {
-        title: "Popular Gujarat Tours",
-        links: [
-          { name: "Somnath - Dwarka", href: "/places/somnath-dwarka" },
-          {
-            name: "Dwarka - Somnath - Gir",
-            href: "/places/dwarka-somnath-gir",
-          },
-          {
-            name: "Kutch / Rann of Kutch",
-            href: "/places/kutch-rann-of-kutch",
-          },
-          {
-            name: "Ahmedabad - Modhera - Patan",
-            href: "/places/ahmedabad-modhera-patan",
-          },
-          { name: "Statue of Unity", href: "/places/statue-of-unity-1day" },
-          {
-            name: "Gujarat Jyotirlinga Tour",
-            href: "/places/gujarat-jyotirlinga-tour",
-          },
-          { name: "Gujarat Family Tour", href: "/places/gujarat-family-tour" },
-          { name: "Gujarat Temple Tour", href: "/places/gujarat-temple-tour" },
-        ],
-      },
-    ],
-  },
-  {
-    col: [
-      {
-        title: "Popular Outstation Destinations - Rajasthan",
-        links: [
-          { name: "Udaipur", href: "/places/udaipur" },
-          { name: "Mount Abu", href: "/places/mount-abu" },
-          { name: "Nathdwara", href: "/places/nathdwara" },
-          { name: "Chittorgarh", href: "/places/chittorgarh" },
-          { name: "Jaipur", href: "/places/jaipur" },
-          { name: "Jodhpur", href: "/places/jodhpur" },
-          { name: "Jaisalmer", href: "/places/jaisalmer" },
-        ],
-      },
-      {
-        title: "Vadodara Se Popular 1-Day Trips",
-        links: [
-          {
-            name: "Statue of Unity / Ekta Nagar",
-            href: "/places/statue-of-unity-local",
-          },
-          { name: "Champaner - Pavagadh", href: "/places/champaner-pavagadh" },
-          { name: "Ahmedabad", href: "/places/ahmedabad" },
-          { name: "Anand - Dakor", href: "/places/anand-dakor" },
-          { name: "Polo Forest", href: "/places/polo-forest" },
-        ],
-      },
-    ],
-  },
-  {
-    col: [
-      {
-        title: "Popular Outstation Destinations - Madhya Pradesh",
-        links: [
-          { name: "Indore", href: "/places/indore" },
-          { name: "Ujjain", href: "/places/ujjain" },
-          { name: "Omkareshwar", href: "/places/omkareshwar" },
-          { name: "Maheshwar", href: "/places/maheshwar" },
-        ],
-      },
-    ],
-  },
-];
 const logo = "/YASHDEEP%20TRAVELS.svg";
 export default function Footer() {
   const scrollToTop = () => {
@@ -237,12 +141,12 @@ export default function Footer() {
         {/* Col 4: Contact helpline (3 cols) */}
         <div className="lg:col-span-3 space-y-4">
           <h4 className="font-bold text-xs uppercase tracking-wider text-white mb-4">
-            Helpline Booking
+            Helpline
           </h4>
-          <p className="text-xs text-gray-400">
-            Need immediate support or custom quotes? Talk directly with our
-            dispatch office.
-          </p>
+          <div className="space-y-1.5 text-xs text-gray-400 leading-relaxed">
+            <p>Need immediate support or custom quotes?</p>
+            <p>Talk directly with our dispatch office.</p>
+          </div>
           <a
             href="tel:+919099042156"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#D51745] text-white hover:bg-[#B21035] text-xs font-bold transition-all duration-150 w-full justify-center"
@@ -266,7 +170,7 @@ export default function Footer() {
           <ArrowUp size={16} />
         </button>
       </div>
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 border-b border-[#221F2B]/40 pb-12 mb-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10   ">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#221F2B]/40 pb-4 mb-8">
           <h3 className="text-xs md:text-sm font-black text-[#D51745] tracking-wider flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-[#D51745] rounded-full inline-block animate-pulse" />
@@ -276,43 +180,14 @@ export default function Footer() {
             Direct Cab Booking & Sightseeing Packages
           </span>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {footerDestinations.map((colData, colIdx) => (
-            <div key={colIdx} className="space-y-8">
-              {colData.col.map((group, groupIdx) => (
-                <div key={groupIdx} className="space-y-4">
-                  <h4 className="font-extrabold text-[10px] md:text-[11px] text-white tracking-wide border-b border-[#221F2B]/60 pb-2">
-                    {group.title}
-                  </h4>
-                  <ul className="space-y-2.5">
-                    {group.links.map((link, linkIdx) => (
-                      <li key={linkIdx} className="text-xs text-gray-400">
-                        <Link
-                          href={link.href}
-                          className="hover:text-[#D51745] transition-colors duration-150 flex items-start gap-1.5"
-                        >
-                          <span className="text-gray-655 font-bold select-none">
-                            &gt;
-                          </span>
-                          <span className="font-medium">{link.name}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
       </div>
       {/* Floating Call Helper Button */}
       <a
         href="tel:+919099042156"
-        className="fixed bottom-24 right-6 w-14 h-14 bg-[#D51745] hover:bg-[#B21035] text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(213,23,69,0.3)] hover:scale-105 transition-transform duration-200 z-40"
+        className="fixed bottom-16 sm:bottom-24 right-3 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-[#D51745] hover:bg-[#B21035] text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(213,23,69,0.3)] hover:scale-105 transition-transform duration-200 z-40"
         title="Call dispatch office for booking"
       >
-        <Phone size={22} />
+        <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
       </a>
 
       {/* Floating WhatsApp Helper Button */}
@@ -320,7 +195,7 @@ export default function Footer() {
         href="https://wa.me/919099042156"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:scale-105 transition-transform duration-200 z-40"
+        className="fixed bottom-3 sm:bottom-6 right-3 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:scale-105 transition-transform duration-200 z-40"
         title="Chat with booking agent on WhatsApp"
       >
         <svg
@@ -328,7 +203,7 @@ export default function Footer() {
           height="19"
           viewBox="0 0 19 19"
           fill="none"
-          className="scale-130 mb-1"
+          className="scale-110 sm:scale-130 mb-0.5 sm:mb-1"
           xmlns="http://www.w3.org/2000/svg"
         >
           <g clipPath="url(#clip0_418_208)">

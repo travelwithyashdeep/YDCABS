@@ -133,7 +133,7 @@ export const placeGroups: PlaceGroup[] = [
       createPlace(
         "kirti-mandir",
         "Kirti Mandir",
-        "https://i.pinimg.com/736x/be/b7/ab/beb7ab387efe329804716151adb96eff.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kirti_Mandir%2C_Vadadora_%28Baroda%29_-_India_%283-2%29_%288147894472%29.jpg/330px-Kirti_Mandir%2C_Vadadora_%28Baroda%29_-_India_%283-2%29_%288147894472%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
         "Vadodara",
         {
           location: "Vadodara, Gujarat",
@@ -147,7 +147,7 @@ export const placeGroups: PlaceGroup[] = [
       createPlace(
         "sur-sagar-lake",
         "Sur Sagar Lake",
-        "https://i.pinimg.com/1200x/f9/da/82/f9da820ed6a61208e3725c0fa57da346.jpg",
+        "https://i.pinimg.com/736x/f7/c2/ca/f7c2caf6be44a4393d9d2ed0c0f1625c.jpg",
         "Vadodara",
         {
           location: "Vadodara, Gujarat",
@@ -343,7 +343,7 @@ export const placeGroups: PlaceGroup[] = [
       createPlace(
         "chittorgarh",
         "Chittorgarh",
-        "https://i.pinimg.com/1200x/e3/21/86/e321860d0701bb373a5af0f5b05618f6.jpg",
+        "https://i.pinimg.com/736x/a2/5b/e9/a25be9f8cce2b1d2aca46d39578e1e3b.jpg",
         "Rajasthan",
         {
           location: "Rajasthan",
@@ -490,13 +490,13 @@ export const placeGroups: PlaceGroup[] = [
           duration: "2 Days",
           description:
             "Holy Kumbh Mela city on Godavari river and wine capital of India.",
-          tag: "Holy City & Vineyards",
+          tag: "Holy City",
         },
       ),
       createPlace(
         "shirdi",
         "Shirdi",
-        "https://i.pinimg.com/736x/ab/a0/17/aba017cdaa23a32ba61dd879002038d6.jpg",
+        "https://i.pinimg.com/736x/58/63/7d/58637d74bb8d37af61e2a1b93769c239.jpg",
         "Maharashtra",
         {
           location: "Maharashtra",

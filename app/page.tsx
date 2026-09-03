@@ -102,13 +102,11 @@ export default function Home() {
         {/* Hero Banner with Booking Engine */}
         <Hero />
         {/* Fleet Tariffs & Booking Rates Cards */}
-
         <PopularCabs />
         {/* Infinite Scrolling Draggable Destination Routes */}
         <PopularRoutes />
         <StoryRedirect />
         {/* ScrollDirectionCarousel for Popular Places */}
-
         {/* Dynamic Statistics Matrix */}
         <Metrix />
         {/* Six Key Selling Features */}
