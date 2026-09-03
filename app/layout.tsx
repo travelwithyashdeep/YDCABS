@@ -103,7 +103,7 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${neueHaasItalic.variable} ${neueHaasMediumItalic.variable} ${italicMedium.variable} ${neueHaasBoldItalic.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col  text-[#111827]">
+      <body className={`${poppins.className} min-h-full flex flex-col text-[#111827]`}>
         <CuelumeBinder />
         {children}
         <ToastContainer position="top-right" autoClose={4000} theme="light" />
