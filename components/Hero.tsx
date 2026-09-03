@@ -3,10 +3,10 @@ import { Phone } from "lucide-react";
 import ContactForm from "./Contact-form";
 export default function Hero() {
   return (
-    <section className="relative min-h-[70vh] lg:min-h-[80vh] flex items-center py-10 sm:py-14 lg:py-16 pb-28 sm:pb-20 lg:pb-16 px-4 md:px-8 overflow-hidden bg-[#faf8f5]">
+    <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center py-12 sm:py-16 lg:py-20 pb-28 sm:pb-24 lg:pb-20 px-4 md:px-8 overflow-hidden bg-[#faf8f5]">
       {/* Background image from public/images/hero-bg.png */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-[position:center_top] sm:bg-[position:center_18%] bg-no-repeat pointer-events-none transition-all duration-300"
+        className="absolute inset-0 z-0 bg-cover bg-[position:center_58%] sm:bg-[position:center_58%] lg:bg-[position:center_56%] bg-no-repeat pointer-events-none transition-all duration-300"
         style={{ backgroundImage: `url('/images/hero-bg.png')` }}
       />
       {/* Subtle overlay to ensure text stands out slightly but remains clean */}
@@ -14,7 +14,7 @@ export default function Hero() {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left Column: Yellow Headline */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left space-y-4">
+        <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left space-y-4">
           {/* drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] */}
           <h1 className="text-5xl  md:text-7xl font-bold drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]  tracking-tight text-neutral-50  leading-none ">
             Where will you <br />
@@ -61,7 +61,7 @@ export default function Hero() {
         </div>
 
         {/* Right Column: Contact Booking Form */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end">
+        <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end w-full">
           <ContactForm />
         </div>
       </div>

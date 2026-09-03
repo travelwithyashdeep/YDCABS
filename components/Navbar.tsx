@@ -47,7 +47,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 select-none group"
+              className="flex items-center gap-2 select-none group shrink-0 mr-4"
             >
               <div className="w-10 h-10 relative overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                 <Ydcabs className="object-contain" />
@@ -63,12 +63,12 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav Links */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden xl:flex items-center gap-5 2xl:gap-8">
               {navLinks.map((link, idx) => (
                 <Link
                   key={idx}
                   href={link.link}
-                  className="text-sm font-semibold text-gray-600 hover:text-[#D51745] transition-colors duration-150"
+                  className="text-sm font-semibold text-gray-600 hover:text-[#D51745] transition-colors duration-150 whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
@@ -102,7 +102,7 @@ export default function Navbar() {
               <button
                 onClick={toggleMobileMenu}
                 type="button"
-                className="md:hidden w-10 h-10 rounded-lg border border-[#E5E7EB] bg-white flex items-center justify-center text-gray-700 hover:text-[#D51745] hover:border-[#D51745]/30 transition-all duration-150 cursor-pointer"
+                className="xl:hidden w-10 h-10 rounded-lg border border-[#E5E7EB] bg-white flex items-center justify-center text-gray-700 hover:text-[#D51745] hover:border-[#D51745]/30 transition-all duration-150 cursor-pointer"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -112,7 +112,7 @@ export default function Navbar() {
 
           {/* Mobile Dropdown Nav Menu */}
           {mobileMenuOpen && (
-            <div className="absolute top-full left-0 right-0 bg-[#FAFAFA] border-b border-[#E5E7EB] shadow-xl md:hidden animate-fade-in z-20">
+            <div className="absolute top-full left-0 right-0 bg-[#FAFAFA] border-b border-[#E5E7EB] shadow-xl xl:hidden animate-fade-in z-20">
               <nav className="flex flex-col p-4 space-y-3">
                 {navLinks.map((link, idx) => (
                   <Link

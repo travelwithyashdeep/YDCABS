@@ -686,27 +686,27 @@ Please share the availability and customized fare estimates at your earliest con
         </div>
 
         {/* Date and Time Pickers Side-by-Side */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4">
-          <div className="relative">
-            <span className="absolute left-3 top-3.5 text-gray-400">
+        <div className="grid grid-cols-1 min-[360px]:grid-cols-2 gap-2.5 sm:gap-3 min-w-0">
+          <div className="relative min-w-0">
+            <span className="absolute left-2.5 sm:left-3 top-3.5 text-gray-400 pointer-events-none">
               <Calendar size={14} />
             </span>
             <input
               type="date"
               value={pickupDate}
               onChange={(e) => setPickupDate(e.target.value)}
-              className="w-full pl-8 pr-2 py-3 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-900 focus:outline-none focus:border-red-500"
+              className="w-full min-w-0 pl-7 sm:pl-8 pr-1.5 sm:pr-2 py-3 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-900 focus:outline-none focus:border-red-500 [color-scheme:light]"
             />
           </div>
-          <div className="relative">
-            <span className="absolute left-3 top-3.5 text-gray-400">
+          <div className="relative min-w-0">
+            <span className="absolute left-2.5 sm:left-3 top-3.5 text-gray-400 pointer-events-none">
               <Clock size={14} />
             </span>
             <input
               type="time"
               value={pickupTime}
               onChange={(e) => setPickupTime(e.target.value)}
-              className="w-full pl-8 pr-2 py-3 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-900 focus:outline-none focus:border-red-500"
+              className="w-full min-w-0 pl-7 sm:pl-8 pr-1.5 sm:pr-2 py-3 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-900 focus:outline-none focus:border-red-500 [color-scheme:light]"
             />
           </div>
         </div>
@@ -714,10 +714,10 @@ Please share the availability and customized fare estimates at your earliest con
         {/* Submit Button in Crimson Red */}
         <button
           type="submit"
-          className="w-full bg-[#D51745] hover:bg-[#B21035] hover:scale-[1.02] active:scale-[0.98] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red-500/20 text-sm"
+          className="w-full bg-[#D51745] hover:bg-[#B21035] hover:scale-[1.01] active:scale-[0.98] text-white font-bold py-3.5 px-4 sm:px-6 rounded-xl transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red-500/20 text-sm whitespace-nowrap"
         >
           <span>Book Cab</span>
-          <ArrowRight size={14} />
+          <ArrowRight size={14} className="shrink-0" />
         </button>
       </form>
 
