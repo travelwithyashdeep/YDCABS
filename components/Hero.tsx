@@ -1,13 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone } from "lucide-react";
 import ContactForm from "./Contact-form";
 export default function Hero() {
   return (
     <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center py-12 sm:py-16 lg:py-20 pb-28 sm:pb-24 lg:pb-20 px-4 md:px-8 overflow-hidden bg-[#faf8f5]">
-      {/* Background image from public/images/hero-bg.png */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-[position:center_58%] sm:bg-[position:center_58%] lg:bg-[position:center_56%] bg-no-repeat pointer-events-none transition-all duration-300"
-        style={{ backgroundImage: `url('/images/hero-bg.png')` }}
+      {/* Background image optimized with Next.js Image for LCP */}
+      <Image
+        src="/images/hero-bg.webp"
+        alt="Yashdeep Travels Hero Background"
+        fill
+        priority
+        quality={80}
+        sizes="100vw"
+        className="object-cover object-[center_58%] sm:object-[center_58%] lg:object-[center_56%] pointer-events-none transition-all duration-300"
       />
       {/* Subtle overlay to ensure text stands out slightly but remains clean */}
       <div className="absolute inset-0 bg-black/15 z-0 pointer-events-none" />

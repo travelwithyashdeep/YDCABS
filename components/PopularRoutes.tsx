@@ -208,9 +208,8 @@ function RouteGroupCarousel({ group }: RouteGroupProps) {
                     src={place.img}
                     alt={place.title}
                     fill
-                    sizes="300px"
+                    sizes="(max-width: 768px) 288px, 300px"
                     className="object-cover transition-transform duration-300 group-hover:scale-102"
-                    unoptimized
                     draggable={false}
                   />
 

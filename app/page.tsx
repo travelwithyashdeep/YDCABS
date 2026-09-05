@@ -1,14 +1,16 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Metrix from "@/components/Metrix";
-import PopularRoutes from "@/components/PopularRoutes";
-import PopularCabs from "@/components/PopularCabs";
-import Whyus from "@/components/Whyus";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import GetInTouch from "@/components/GetInTouch";
 import Footer from "@/components/Footer";
-import StoryRedirect from "@/components/StoryRedirect";
+
+const PopularCabs = dynamic(() => import("@/components/PopularCabs"));
+const PopularRoutes = dynamic(() => import("@/components/PopularRoutes"));
+const StoryRedirect = dynamic(() => import("@/components/StoryRedirect"));
+const Metrix = dynamic(() => import("@/components/Metrix"));
+const Whyus = dynamic(() => import("@/components/Whyus"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
+const GetInTouch = dynamic(() => import("@/components/GetInTouch"));
 export default function Home() {
   const schemaData = {
     "@context": "https://schema.org",

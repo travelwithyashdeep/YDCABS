@@ -103,6 +103,11 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${neueHaasItalic.variable} ${neueHaasMediumItalic.variable} ${italicMedium.variable} ${neueHaasBoldItalic.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://i.pinimg.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://i.pinimg.com" />
+        <link rel="preconnect" href="https://upload.wikimedia.org" crossOrigin="anonymous" />
+      </head>
       <body className={`${poppins.className} min-h-full flex flex-col text-[#111827]`}>
         <CuelumeBinder />
         {children}

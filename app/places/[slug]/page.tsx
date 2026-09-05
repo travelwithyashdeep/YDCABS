@@ -109,8 +109,8 @@ export default async function PlacePage({ params }: PageProps) {
                 alt={place.title}
                 fill
                 priority
+                sizes="100vw"
                 className="object-cover opacity-90"
-                unoptimized
               />
             </div>
 
@@ -396,9 +396,8 @@ export default async function PlacePage({ params }: PageProps) {
                       src={sug.img}
                       alt={sug.title}
                       fill
-                      sizes="320px"
+                      sizes="(max-width: 768px) 100vw, 320px"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      unoptimized
                     />
                     <span className="absolute top-3 left-3 bg-black/40 backdrop-blur-sm text-[9px] uppercase font-bold text-neutral-50 px-2 py-0.5 rounded">
                       {sug.tag}

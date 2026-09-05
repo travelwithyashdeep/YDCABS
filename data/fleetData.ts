@@ -12,7 +12,7 @@ export const fleetData: FleetCar[] = [
   {
     name: "Sedan",
     options: "(Dzire, Aura, Amaze or equivalent)",
-    image: "/cars/final-desire.png",
+    image: "/cars/final-desire.webp",
     rate: "₹11/km",
     minLimit: "300 km/day",
     allowance: "₹300",
@@ -26,7 +26,7 @@ export const fleetData: FleetCar[] = [
   {
     name: "SUV",
     options: "(Ertiga, Rumion, Marazzo or equivalent)",
-    image: "/cars/image.png",
+    image: "/cars/image.webp",
     rate: "₹14/km",
     minLimit: "300 km/day",
     allowance: "₹300",
@@ -40,7 +40,7 @@ export const fleetData: FleetCar[] = [
   {
     name: "Crysta",
     options: "(Innova Crysta)",
-    image: "/cars/suv.png",
+    image: "/cars/suv.webp",
     rate: "₹20/km",
     minLimit: "300 km/day",
     allowance: "₹400",
@@ -54,7 +54,7 @@ export const fleetData: FleetCar[] = [
   {
     name: "Tempo/Urbania",
     options: "(Urbania)",
-    image: "/cars/urbania-white.png",
+    image: "/cars/urbania-white.webp",
     rate: "₹35/km",
     minLimit: "300 km/day",
     allowance: "₹500",
@@ -68,7 +68,7 @@ export const fleetData: FleetCar[] = [
   {
     name: "Luxury",
     options: "(BMW, Jaguar, Mercedes, Audi, Range Rover)",
-    image: "/cars/bmw.png",
+    image: "/cars/bmw.webp",
     rate: "Customzied",
     minLimit: "Flexible",
     allowance: "Included",
