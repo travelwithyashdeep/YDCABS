@@ -215,7 +215,7 @@ export default function ContactForm() {
     field: "pickup" | "dropoff",
     s: Suggestion,
   ) => {
-    if (!s.lat || !s.lon) {
+    if (s.lat == null || s.lon == null) {
       if (field === "pickup") setPickupAqi(null);
       else setDropoffAqi(null);
       return;
@@ -443,7 +443,7 @@ Please share the availability and customized fare estimates at your earliest con
             key={type}
             type="button"
             onClick={() => setTripType(type)}
-            className={`flex-1 py-2 text-center text-xs md:text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${
+            className={`flex-1 py-2 text-center text-xs md:text-sm font-semibold rounded-full whitespace-nowrap transition-all duration-200 cursor-pointer ${
               tripType === type
                 ? "bg-white text-gray-900 shadow-md"
                 : "text-white/80 hover:text-white"
@@ -460,86 +460,33 @@ Please share the availability and customized fare estimates at your earliest con
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Pickup Location */}
-        <div ref={pickupRef} className="relative">
-          <input
-            type="text"
-            placeholder="Enter pickup location"
-            value={pickup}
-            onChange={(e) => setPickup(e.target.value)}
-            onFocus={() => handleInputFocus("pickup")}
-            onClick={() => handleInputFocus("pickup")}
-            className="w-full pl-4 pr-10 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-          />
-          <span className="absolute right-3.5 top-4.5 text-gray-400">
-            <MapPin size={16} />
-          </span>
-
-          {/* Suggestions Dropdown (Desktop only) */}
-          {showPickupDropdown && pickupSuggestions.length > 0 && (
-            <div className="absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl z-20 max-h-60 overflow-y-auto">
-              {pickupSuggestions.map((s, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => {
-                    setPickup(s.city);
-                    setShowPickupDropdown(false);
-                    handleSelectPlace("pickup", s);
-                  }}
-                  className="w-full text-left px-4 py-3 text-xs md:text-sm hover:bg-gray-50 flex items-center gap-2 border-b border-gray-100 last:border-b-0 cursor-pointer"
-                >
-                  <MapPin size={14} className="text-gray-400 shrink-0" />
-                  <div>
-                    <div className="font-bold text-gray-900">{s.city}</div>
-                    <div className="text-[10px] text-gray-500">
-                      {s.subtitle}
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {pickupAqi !== null && (
-          <div className="mt-1 flex items-center gap-1.5 text-xs font-semibold pl-1 select-none">
-            <span className="text-white/60">Pickup AQI:</span>
-            <span
-              className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold ${getAqiBadgeColor(pickupAqi)}`}
-            >
-              {pickupAqi} - {getAqiStatus(pickupAqi)}
-            </span>
-          </div>
-        )}
-
-        {/* Dropoff Location (Hidden in Local Trip Type) */}
-        {tripType !== "local" && (
-          <div ref={dropoffRef} className="relative">
+        {/* Pickup Location + AQI badge grouped so space-y-4 rhythm stays stable */}
+        <div className="space-y-1">
+          <div ref={pickupRef} className="relative">
             <input
               type="text"
-              placeholder="Enter drop location"
-              value={dropoff}
-              onChange={(e) => setDropoff(e.target.value)}
-              onFocus={() => handleInputFocus("dropoff")}
-              onClick={() => handleInputFocus("dropoff")}
+              placeholder="Enter pickup location"
+              value={pickup}
+              onChange={(e) => setPickup(e.target.value)}
+              onFocus={() => handleInputFocus("pickup")}
               className="w-full pl-4 pr-10 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
             />
-            <span className="absolute right-3.5 top-4.5 text-gray-400">
+            <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400">
               <MapPin size={16} />
             </span>
 
             {/* Suggestions Dropdown (Desktop only) */}
-            {showDropoffDropdown && dropoffSuggestions.length > 0 && (
+            {showPickupDropdown && pickupSuggestions.length > 0 && (
               <div className="absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl z-20 max-h-60 overflow-y-auto">
-                {dropoffSuggestions.map((s, index) => (
+                {pickupSuggestions.map((s, index) => (
                   <button
                     key={index}
                     type="button"
                     onClick={() => {
-                      setDropoff(s.city);
-                      setShowDropoffDropdown(false);
-                      handleSelectPlace("dropoff", s);
+                      setPickup(s.city);
+                      setShowPickupDropdown(false);
+                      setPickupSuggestions([]);
+                      handleSelectPlace("pickup", s);
                     }}
                     className="w-full text-left px-4 py-3 text-xs md:text-sm hover:bg-gray-50 flex items-center gap-2 border-b border-gray-100 last:border-b-0 cursor-pointer"
                   >
@@ -555,16 +502,73 @@ Please share the availability and customized fare estimates at your earliest con
               </div>
             )}
           </div>
-        )}
 
-        {dropoffAqi !== null && tripType !== "local" && (
-          <div className="mt-1 flex items-center gap-1.5 text-xs font-semibold pl-1 select-none">
-            <span className="text-white/60">Dropoff AQI:</span>
-            <span
-              className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold ${getAqiBadgeColor(dropoffAqi)}`}
-            >
-              {dropoffAqi} - {getAqiStatus(dropoffAqi)}
-            </span>
+          {pickupAqi !== null && (
+            <div className="flex items-center gap-1.5 text-xs font-semibold pl-1 select-none">
+              <span className="text-white/60">Pickup AQI:</span>
+              <span
+                className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold ${getAqiBadgeColor(pickupAqi)}`}
+              >
+                {pickupAqi} - {getAqiStatus(pickupAqi)}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Dropoff Location (Hidden in Local Trip Type) + AQI badge grouped */}
+        {tripType !== "local" && (
+          <div className="space-y-1">
+            <div ref={dropoffRef} className="relative">
+              <input
+                type="text"
+                placeholder="Enter drop location"
+                value={dropoff}
+                onChange={(e) => setDropoff(e.target.value)}
+                onFocus={() => handleInputFocus("dropoff")}
+                className="w-full pl-4 pr-10 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+              />
+              <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+                <MapPin size={16} />
+              </span>
+
+              {/* Suggestions Dropdown (Desktop only) */}
+              {showDropoffDropdown && dropoffSuggestions.length > 0 && (
+                <div className="absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl z-20 max-h-60 overflow-y-auto">
+                  {dropoffSuggestions.map((s, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => {
+                        setDropoff(s.city);
+                        setShowDropoffDropdown(false);
+                        setDropoffSuggestions([]);
+                        handleSelectPlace("dropoff", s);
+                      }}
+                      className="w-full text-left px-4 py-3 text-xs md:text-sm hover:bg-gray-50 flex items-center gap-2 border-b border-gray-100 last:border-b-0 cursor-pointer"
+                    >
+                      <MapPin size={14} className="text-gray-400 shrink-0" />
+                      <div>
+                        <div className="font-bold text-gray-900">{s.city}</div>
+                        <div className="text-[10px] text-gray-500">
+                          {s.subtitle}
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {dropoffAqi !== null && (
+              <div className="flex items-center gap-1.5 text-xs font-semibold pl-1 select-none">
+                <span className="text-white/60">Dropoff AQI:</span>
+                <span
+                  className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold ${getAqiBadgeColor(dropoffAqi)}`}
+                >
+                  {dropoffAqi} - {getAqiStatus(dropoffAqi)}
+                </span>
+              </div>
+            )}
           </div>
         )}
 
@@ -601,13 +605,13 @@ Please share the availability and customized fare estimates at your earliest con
                     key={pkg.id}
                     type="button"
                     onClick={() => setLocalPackage(pkg.id)}
-                    className={`w-full text-left p-3.5 rounded-xl border flex items-center justify-between transition-all duration-150 cursor-pointer ${
+                    className={`w-full text-left p-3.5 rounded-xl border flex items-center justify-between gap-3 transition-all duration-150 cursor-pointer ${
                       isSelected
                         ? "bg-white border-[#D51745] shadow-lg shadow-black/15 font-bold"
                         : "bg-white/5 border-white/10 hover:bg-white/10"
                     }`}
                   >
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
                       <span
                         className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
                           isSelected ? "border-[#D51745]" : "border-white/30"
@@ -618,7 +622,7 @@ Please share the availability and customized fare estimates at your earliest con
                         )}
                       </span>
                       <span
-                        className={`text-xs md:text-sm font-semibold ${
+                        className={`text-xs md:text-sm font-semibold truncate ${
                           isSelected ? "text-gray-900" : "text-white"
                         }`}
                       >
@@ -627,14 +631,14 @@ Please share the availability and customized fare estimates at your earliest con
                     </div>
                     <div className="text-right shrink-0">
                       <div
-                        className={`text-xs md:text-sm font-black ${
+                        className={`text-xs md:text-sm font-black whitespace-nowrap ${
                           isSelected ? "text-[#D51745]" : "text-white"
                         }`}
                       >
                         {mainPrice}
                       </div>
                       <div
-                        className={`text-[9px] font-medium leading-none mt-0.5 ${
+                        className={`text-[9px] font-medium leading-none mt-0.5 whitespace-nowrap ${
                           isSelected ? "text-gray-500" : "text-white/40"
                         }`}
                       >
@@ -680,7 +684,7 @@ Please share the availability and customized fare estimates at your earliest con
               </>
             )}
           </select>
-          <span className="absolute right-3.5 top-4.5 pointer-events-none text-gray-400">
+          <span className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
             <ChevronDown size={14} />
           </span>
         </div>
@@ -688,7 +692,7 @@ Please share the availability and customized fare estimates at your earliest con
         {/* Date and Time Pickers Side-by-Side */}
         <div className="grid grid-cols-1 min-[360px]:grid-cols-2 gap-2.5 sm:gap-3 min-w-0">
           <div className="relative min-w-0">
-            <span className="absolute left-2.5 sm:left-3 top-3.5 text-gray-400 pointer-events-none">
+            <span className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
               <Calendar size={14} />
             </span>
             <input
@@ -699,7 +703,7 @@ Please share the availability and customized fare estimates at your earliest con
             />
           </div>
           <div className="relative min-w-0">
-            <span className="absolute left-2.5 sm:left-3 top-3.5 text-gray-400 pointer-events-none">
+            <span className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
               <Clock size={14} />
             </span>
             <input
@@ -736,7 +740,7 @@ Please share the availability and customized fare estimates at your earliest con
                 setMobileSearchField(null);
                 setMobileSearchQuery("");
               }}
-              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500"
+              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 shrink-0"
             >
               <X size={18} />
             </button>
@@ -744,7 +748,7 @@ Please share the availability and customized fare estimates at your earliest con
           {/* Search Input */}
           <div className="p-4 bg-white border-b border-gray-100">
             <div className="relative">
-              <span className="absolute left-3 top-3.5 text-gray-400">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                 <Search size={18} />
               </span>
               <input
@@ -769,11 +773,13 @@ Please share the availability and customized fare estimates at your earliest con
                   <span className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center text-red-500 shrink-0 mt-0.5">
                     <MapPin size={16} />
                   </span>
-                  <div>
-                    <h4 className="font-bold text-sm text-gray-900">
+                  <div className="min-w-0">
+                    <h4 className="font-bold text-sm text-gray-900 truncate">
                       {s.city}
                     </h4>
-                    <p className="text-xs text-gray-500 mt-0.5">{s.subtitle}</p>
+                    <p className="text-xs text-gray-500 mt-0.5 truncate">
+                      {s.subtitle}
+                    </p>
                   </div>
                 </button>
               ))
