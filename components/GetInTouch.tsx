@@ -30,9 +30,9 @@ export default function GetInTouch() {
                 <Phone size={18} />
               </span>
               <div className="flex-1 min-w-0">
-                <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
+                <h3 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   Call Helpline
-                </h4>
+                </h3>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
                   <a
                     href="tel:+919099042156"
@@ -61,9 +61,9 @@ export default function GetInTouch() {
                 <MessageSquare size={18} />
               </span>
               <div className="flex-1 min-w-0">
-                <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
+                <h3 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   WhatsApp Support
-                </h4>
+                </h3>
                 <a
                   href="https://wa.me/919099042156"
                   target="_blank"
@@ -83,9 +83,9 @@ export default function GetInTouch() {
                 <Mail size={18} />
               </span>
               <div className="flex-1 min-w-0">
-                <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
+                <h3 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   Email Inquiry
-                </h4>
+                </h3>
                 <a
                   href="mailto:bookings@yashdeepcabs.com"
                   className="block font-black text-sm md:text-base text-gray-900 hover:text-[#D51745] mt-1 transition-colors duration-150 truncate"
@@ -103,9 +103,9 @@ export default function GetInTouch() {
                 <MapPin size={18} />
               </span>
               <div className="flex-1 min-w-0">
-                <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
+                <h3 className="font-bold text-xs text-gray-500 uppercase tracking-wider">
                   Office Address
-                </h4>
+                </h3>
                 <p className="text-xs md:text-sm text-gray-800 mt-1 leading-relaxed font-semibold">
                   101 Radhey Flats, 13/14 Sumant Park, opp. Shrenik, Par Park,
                   Akota, Vadodara, Gujarat 390007
@@ -128,6 +128,7 @@ export default function GetInTouch() {
           <div className="lg:col-span-7 h-96 w-full rounded-2xl overflow-hidden border border-gray-200 shadow-lg relative bg-white">
             <iframe
               src="https://maps.google.com/maps?q=Yashdeep%20Travels%20Akota%20Vadodara&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Yashdeep Travels Office Location Map"
               className="w-full h-full border-0"
               allowFullScreen
               loading="lazy"

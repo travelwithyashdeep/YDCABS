@@ -165,9 +165,9 @@ export default function Testimonials() {
               {/* Author Footer */}
               <div className="flex justify-between items-center pt-4 border-t border-gray-200 mt-auto">
                 <div>
-                  <h4 className="font-bold text-sm text-gray-950">
+                  <h3 className="font-bold text-sm text-gray-950">
                     {test.name}
-                  </h4>
+                  </h3>
                   <span className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider">
                     {test.role}
                   </span>

@@ -165,6 +165,7 @@ export default function Footer() {
 
         <button
           onClick={scrollToTop}
+          aria-label="Scroll back to top"
           className="p-2 bg-white/5 hover:bg-[#D51745] rounded-full text-gray-400 hover:text-white transition-colors duration-150 flex items-center justify-center cursor-pointer border border-white/5"
         >
           <ArrowUp size={16} />
@@ -184,6 +185,7 @@ export default function Footer() {
       {/* Floating Call Helper Button */}
       <a
         href="tel:+919099042156"
+        aria-label="Call dispatch office"
         className="fixed bottom-16 sm:bottom-24 right-3 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-[#D51745] hover:bg-[#B21035] text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(213,23,69,0.3)] hover:scale-105 transition-transform duration-200 z-40"
         title="Call dispatch office for booking"
       >
@@ -195,6 +197,7 @@ export default function Footer() {
         href="https://wa.me/919099042156"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Chat with booking agent on WhatsApp"
         className="fixed bottom-3 sm:bottom-6 right-3 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:scale-105 transition-transform duration-200 z-40"
         title="Chat with booking agent on WhatsApp"
       >
